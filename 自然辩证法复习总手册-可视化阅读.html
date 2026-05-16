@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自然辩证法复习总手册 · 可视化阅读</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FBF6EA;
+  --bg-surface: #FFFFFF;
+  --bg-soft: #F5ECD8;
+  --bg-dark: #1A1816;
+  --bg-dark-2: #252220;
+  --text: #1A1816;
+  --text-muted: #6B6660;
+  --text-soft: #8C857B;
+  --text-invert: #F5F1E8;
+  --accent: #B5312C;
+  --accent-hover: #962823;
+  --accent-soft: #F4D4D3;
+  --accent-deep: #7A1F1C;
+  --indigo: #2E4A6B;
+  --indigo-soft: #D8E4EA;
+  --green: #2E6B4F;
+  --green-soft: #D8EDE2;
+  --purple: #5A4A8C;
+  --purple-soft: #E2DDEE;
+  --amber: #B8860B;
+  --amber-soft: #F4E8C7;
+  --teal: #2E6B6B;
+  --teal-soft: #D4EDED;
+  --border: #E8DCC7;
+  --border-strong: #D4C4A6;
+  --border-dark: #3A3633;
+  --shadow-sm: 0 1px 2px rgba(26,24,22,0.04);
+  --shadow-md: 0 4px 14px rgba(26,24,22,0.06);
+  --shadow-lg: 0 16px 40px rgba(26,24,22,0.10);
+  --radius: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); }
+.container { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+/* ---------- Progress Bar ---------- */
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px; z-index: 200;
+  background: var(--accent);
+  width: 0%; transition: width 0.1s linear;
+}
+
+/* ---------- Top Bar ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(251,246,234,0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.topbar-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 28px; max-width: 1180px; margin: 0 auto;
+}
+.brand {
+  display: flex; align-items: center; gap: 12px;
+  font-weight: 700; font-size: 14.5px; letter-spacing: -0.005em;
+}
+.brand-logo {
+  width: 28px; height: 28px; border-radius: 7px;
+  background: var(--accent);
+  display: grid; place-items: center; color: white; font-size: 14px; font-weight: 800;
+  font-family: 'JetBrains Mono', monospace;
+}
+.brand-text { color: var(--text); }
+.brand-text small { color: var(--text-muted); font-weight: 500; font-size: 12px; margin-left: 8px; }
+.topnav { display: flex; gap: 4px; align-items: center; }
+.topnav a {
+  padding: 7px 9px; border-radius: 8px;
+  color: var(--text-muted); font-size: 12.5px; font-weight: 500;
+  transition: color 0.15s, background 0.15s;
+}
+.topnav a:hover { color: var(--text); background: var(--accent-soft); }
+
+/* ---------- Hero ---------- */
+.hero { padding: 72px 0 44px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em;
+  color: var(--accent); text-transform: uppercase;
+  background: var(--accent-soft); padding: 6px 14px; border-radius: 100px;
+  margin-bottom: 22px; font-family: 'JetBrains Mono', monospace;
+}
+.eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+h1 {
+  font-size: clamp(34px, 5.2vw, 54px); line-height: 1.1; letter-spacing: -0.025em;
+  font-weight: 800; margin-bottom: 22px; max-width: 880px;
+}
+.hero-sub {
+  font-size: 19px; color: var(--text-muted); max-width: 720px; line-height: 1.6;
+  font-weight: 400;
+}
+.hero-meta {
+  display: flex; gap: 22px; margin-top: 28px; font-size: 13px; color: var(--text-muted);
+  flex-wrap: wrap; align-items: center;
+}
+.hero-meta span { display: inline-flex; align-items: center; gap: 7px; }
+.hero-meta b { color: var(--text); font-weight: 600; }
+
+/* TL;DR card */
+.tldr {
+  margin-top: 48px; background: var(--bg-dark); color: var(--text-invert);
+  border-radius: var(--radius-xl); padding: 36px 40px;
+  box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+}
+.tldr::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--accent);
+}
+.tldr-title {
+  font-size: 11.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #E8A09E; margin-bottom: 18px; font-family: 'JetBrains Mono', monospace;
+  display: flex; align-items: center; gap: 10px;
+}
+.tldr-title::after {
+  content: ''; flex: 1; height: 1px; background: rgba(181,49,44,0.2);
+}
+.tldr-text {
+  font-size: 19px; line-height: 1.65; color: var(--text-invert); font-weight: 400;
+}
+.tldr-text b { color: #E8A09E; font-weight: 600; }
+.tldr-text + .tldr-text { margin-top: 14px; font-size: 16px; color: #C8C0B3; }
+
+/* Metric strip */
+.metrics-row {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  margin-top: 22px;
+}
+.metric {
+  background: var(--bg-dark-2); border-radius: 14px; padding: 22px;
+  border: 1px solid var(--border-dark);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.metric-value {
+  font-size: 22px; font-weight: 800; letter-spacing: -0.02em;
+  color: #E8A09E; line-height: 1; font-family: 'JetBrains Mono', monospace;
+}
+.metric-value small { font-size: 13px; font-weight: 500; color: #8C857B; margin-left: 2px; }
+.metric-label {
+  font-size: 12px; color: #B3AB9F; line-height: 1.45; margin-top: 6px;
+}
+
+/* ---------- Section ---------- */
+section.block { padding: 64px 0; border-top: 1px solid var(--border); }
+.section-head { margin-bottom: 26px; max-width: 760px; }
+.section-num {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  color: var(--accent); font-weight: 600;
+  background: var(--accent-soft); padding: 5px 12px; border-radius: 100px;
+  margin-bottom: 16px;
+}
+h2 {
+  font-size: clamp(26px, 3.4vw, 36px); font-weight: 700; letter-spacing: -0.022em;
+  margin-bottom: 14px; line-height: 1.18;
+}
+h3 {
+  font-size: 19px; font-weight: 700; letter-spacing: -0.012em;
+  margin-bottom: 10px; line-height: 1.3;
+}
+h4 {
+  font-size: 16px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em;
+}
+.section-sub { color: var(--text-muted); font-size: 16.5px; line-height: 1.65; }
+.section-sub b { color: var(--text); font-weight: 600; }
+.article-copy {
+  max-width: 760px;
+  font-size: 17px;
+  line-height: 1.82;
+  color: var(--text);
+}
+.article-copy p + p { margin-top: 16px; }
+.article-copy b { font-weight: 600; color: var(--text); }
+.article-copy em { color: var(--text-muted); font-style: normal; }
+.article-copy ul, .article-copy ol { margin-top: 12px; padding-left: 22px; }
+.article-copy li { margin-bottom: 8px; }
+.article-copy li::marker { color: var(--accent); }
+
+/* ---------- Visual Panels ---------- */
+.panel {
+  margin-top: 30px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 34px;
+  box-shadow: var(--shadow-md);
+}
+.panel-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+}
+.panel-title {
+  font-size: 21px; font-weight: 800; letter-spacing: -0.015em;
+  margin-bottom: 10px;
+}
+.panel-desc {
+  color: var(--text-muted); font-size: 14.5px; line-height: 1.65;
+  max-width: 640px;
+}
+
+/* ---------- Compare Grid (variant cards) ---------- */
+.compare-grid {
+  display: grid; gap: 14px;
+  margin-top: 22px;
+}
+.compare-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.compare-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.compare-grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
+.compare-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px 18px 22px;
+  background: var(--bg);
+  display: flex; flex-direction: column;
+  transition: all 0.2s;
+}
+.compare-card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-sm); }
+.compare-card .card-top {
+  width: 100%; height: 4px; border-radius: 4px 4px 0 0;
+  margin: -18px -18px 16px -18px;
+}
+.card-name {
+  font-size: 16px; font-weight: 800; letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.card-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  color: var(--text-soft); font-weight: 600;
+  background: var(--bg-surface); border: 1px solid var(--border);
+  padding: 2px 7px; border-radius: 6px;
+  letter-spacing: 0.04em; display: inline-block; margin-bottom: 10px;
+}
+.card-body {
+  font-size: 13.5px; color: var(--text-muted); line-height: 1.6;
+  margin-top: auto;
+}
+.card-body b { color: var(--text); font-weight: 600; }
+
+/* ---------- Dark Callout (trick) ---------- */
+.trick {
+  margin-top: 24px;
+  background: var(--bg-dark);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  color: var(--text-invert);
+}
+.trick-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  letter-spacing: 0.12em; text-transform: uppercase; color: #E8A09E;
+  font-weight: 700; margin-bottom: 10px;
+}
+.trick-title { font-size: 19px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.012em; }
+.trick-body { font-size: 14.5px; color: #C8C0B3; line-height: 1.7; }
+.trick-body b { color: #E8A09E; font-weight: 600; }
+
+/* ---------- Reader Note ---------- */
+.reader-note {
+  margin-top: 24px;
+  padding: 18px 22px;
+  background: rgba(255,255,255,0.62);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  color: var(--text-muted);
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+.reader-note b { color: var(--text); font-weight: 600; }
+
+/* ---------- Q&A Block ---------- */
+.qa-block {
+  margin-top: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-surface);
+}
+.qa-question {
+  padding: 18px 22px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  font-weight: 600; font-size: 15px;
+  background: var(--bg-surface);
+  transition: background 0.15s;
+  user-select: none;
+}
+.qa-question:hover { background: var(--bg-soft); }
+.qa-question .qa-toggle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px; color: var(--accent);
+  transition: transform 0.2s;
+  flex-shrink: 0; margin-left: 12px;
+}
+.qa-block.open .qa-toggle { transform: rotate(45deg); }
+.qa-answer {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.qa-answer-inner {
+  padding: 0 22px 22px;
+  font-size: 14.5px; line-height: 1.8;
+  color: var(--text);
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+.qa-answer-inner b { font-weight: 600; }
+.qa-answer-inner p + p { margin-top: 12px; }
+.qa-answer-inner ul, .qa-answer-inner ol { margin-top: 8px; padding-left: 22px; }
+.qa-answer-inner li { margin-bottom: 6px; }
+
+/* ---------- Timeline ---------- */
+.timeline {
+  margin-top: 22px;
+  position: relative;
+  padding-left: 40px;
+}
+.timeline::before {
+  content: ''; position: absolute; left: 16px; top: 0; bottom: 0;
+  width: 2px; background: var(--border-strong);
+}
+.timeline-item {
+  position: relative; margin-bottom: 24px;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-item::before {
+  content: ''; position: absolute; left: -28px; top: 6px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--accent); border: 3px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+.timeline-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+}
+.timeline-card .tl-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 700; color: var(--accent);
+  letter-spacing: 0.06em; margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.timeline-card .tl-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.timeline-card .tl-body { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+.timeline-card .tl-body b { color: var(--text); font-weight: 600; }
+
+/* ---------- Flow Steps ---------- */
+.flow-steps {
+  margin-top: 22px;
+  display: grid; gap: 0;
+}
+.flow-step {
+  display: grid; grid-template-columns: 80px 1fr;
+  gap: 18px; align-items: start;
+  padding: 18px 0;
+  border-bottom: 1px dashed var(--border);
+}
+.flow-step:last-child { border-bottom: 0; }
+.flow-step-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 700;
+  color: white; background: var(--accent);
+  padding: 4px 12px; border-radius: 100px;
+  text-align: center; letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.flow-step-content h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.flow-step-content p { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+
+/* ---------- Two-Column Grid ---------- */
+.dual-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 18px; margin-top: 22px;
+}
+.dual-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+}
+.dual-card.accent-border { border-color: var(--accent); background: var(--accent-soft); }
+.dual-card.green-border { border-color: var(--green); background: var(--green-soft); }
+.dual-card .dc-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.dual-card h4 { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
+.dual-card p, .dual-card ul { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+.dual-card ul { padding-left: 18px; margin-top: 6px; }
+.dual-card li { margin-bottom: 4px; }
+.dual-card b { color: var(--text); font-weight: 600; }
+
+/* ---------- Table ---------- */
+.compare-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 16px; }
+.compare-table th {
+  text-align: left; padding: 10px 12px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: var(--text-muted); font-weight: 600;
+  border-bottom: 1px solid var(--border-strong);
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.compare-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: top;
+}
+.compare-table td:first-child { font-weight: 600; }
+.compare-table tr:last-child td { border-bottom: 0; }
+.compare-table tr.highlight td {
+  background: var(--accent-soft); color: var(--accent-deep); font-weight: 600;
+}
+
+/* ---------- Visual Bridge label ---------- */
+.visual-bridge {
+  margin: 30px 0 14px;
+  max-width: 760px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ---------- Mind Map (CSS tree) ---------- */
+.mindmap {
+  margin-top: 48px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 34px;
+  box-shadow: var(--shadow-md);
+  overflow-x: auto;
+}
+.mindmap-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 18px;
+}
+.map-tree {
+  display: flex; flex-direction: column; align-items: center; gap: 0;
+  font-size: 14px;
+}
+.map-root {
+  background: var(--bg-dark); color: var(--text-invert);
+  padding: 10px 24px; border-radius: var(--radius);
+  font-weight: 800; font-size: 16px; letter-spacing: -0.01em;
+  text-align: center;
+}
+.map-branches {
+  display: flex; gap: 12px; margin-top: 24px;
+  flex-wrap: wrap; justify-content: center;
+}
+.map-branch {
+  display: flex; flex-direction: column; align-items: center;
+  min-width: 180px; max-width: 200px;
+  position: relative;
+}
+.map-branch::before {
+  content: ''; position: absolute; top: -24px;
+  width: 2px; height: 24px; background: var(--border-strong);
+}
+.map-node {
+  padding: 8px 14px; border-radius: 8px;
+  font-weight: 700; font-size: 13px;
+  text-align: center; line-height: 1.3;
+  width: 100%;
+}
+.map-node .map-sub {
+  display: block; font-size: 11px; font-weight: 500;
+  margin-top: 4px; opacity: 0.8;
+}
+.map-leaves {
+  display: flex; flex-direction: column; gap: 6px;
+  margin-top: 12px; width: 100%;
+}
+.map-leaf {
+  padding: 6px 10px; border-radius: 6px;
+  font-size: 11.5px; line-height: 1.35;
+  text-align: center;
+}
+
+/* ---------- Footer ---------- */
+.site-foot {
+  border-top: 1px solid var(--border);
+  padding: 50px 0 80px;
+  color: var(--text-muted);
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+.site-foot .container { display: grid; gap: 12px; }
+.site-foot .foot-quote {
+  font-size: 17px; color: var(--text); font-weight: 500;
+  font-style: italic; line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+/* ---------- Back to Top ---------- */
+.back-top {
+  position: fixed; bottom: 32px; right: 32px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--accent); color: white;
+  display: grid; place-items: center;
+  cursor: pointer; box-shadow: var(--shadow-md);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  font-size: 20px; font-weight: 700;
+  z-index: 90; border: none;
+}
+.back-top.visible { opacity: 1; pointer-events: auto; }
+.back-top:hover { transform: translateY(-2px); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 880px) {
+  .container { padding: 0 20px; }
+  .topnav { display: none; }
+  .hero { padding: 50px 0 32px; }
+  .tldr { padding: 26px 24px; }
+  .metrics-row { grid-template-columns: 1fr 1fr; }
+  .compare-grid.cols-3, .compare-grid.cols-4, .compare-grid.cols-5 {
+    grid-template-columns: 1fr;
+  }
+  .dual-grid { grid-template-columns: 1fr; }
+  .flow-step { grid-template-columns: 1fr; gap: 6px; }
+  .map-branches { flex-direction: column; align-items: center; }
+  .map-branch { min-width: auto; max-width: 100%; width: 100%; }
+  .map-branch::before { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Back to Top -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0})">&#8593;</button>
+
+<!-- ============== Top Bar ============== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-logo">辩</div>
+      <div class="brand-text">自然辩证法 <small>· 复习总手册</small></div>
+    </div>
+    <nav class="topnav">
+      <a href="#overview">概览</a>
+      <a href="#intro">绪论</a>
+      <a href="#ch1">自然观</a>
+      <a href="#ch2">科技观</a>
+      <a href="#ch3">方法论</a>
+      <a href="#ch4">社会论</a>
+      <a href="#ch5">中国化</a>
+      <a href="#practice">实战</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============== Hero ============== -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow"><span class="dot"></span>研究生课程 · 马克思主义理论</div>
+    <h1>自然辩证法复习总手册</h1>
+    <p class="hero-sub">
+      涵盖五大理论板块的系统梳理：从<b style="color:var(--text)">马克思主义自然观</b>到<b style="color:var(--text)">中国化科技观</b>，配套真题解析与万能答题模板，助你考场稳拿高分。
+    </p>
+    <div class="hero-meta">
+      <span>📚 <b>五大理论基石</b></span>
+      <span>📝 <b>历年真题覆盖</b></span>
+      <span>🔑 <b>万能三段论</b></span>
+      <span>📅 整理于 2026 年 5 月</span>
+    </div>
+
+    <div class="tldr">
+      <div class="tldr-title">TL;DR · 考试万能心法（30 秒记住）</div>
+      <p class="tldr-text">
+        万能三段论：<b>马克思主义经典原理论述（是什么） + 当代科学技术发展事实分析（为什么） + 中国特色社会主义实践（怎么做）</b>
+      </p>
+      <p class="tldr-text">
+        遇到不熟悉的题目，务必向以下<b>四个核心方向</b>靠拢：
+      </p>
+      <div class="metrics-row">
+        <div class="metric">
+          <div class="metric-value">创新<small>驱动</small></div>
+          <div class="metric-label">创新是引领发展的第一动力，高水平科技自立自强</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">生态<small>文明</small></div>
+          <div class="metric-label">绿水青山就是金山银山，人与自然和谐共生</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">以人<small>为本</small></div>
+          <div class="metric-label">科技向善，人民至上，四个面向</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">自立<small>自强</small></div>
+          <div class="metric-label">高水平科技自立自强，新型举国体制，核心技术攻关</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mind Map -->
+    <div class="mindmap">
+      <div class="mindmap-kicker">全科目框架 · 思维导图</div>
+      <div class="map-tree">
+        <div class="map-root">自然辩证法</div>
+        <div class="map-branches">
+          <div class="map-branch">
+            <div class="map-node" style="background:var(--indigo-soft);color:var(--indigo);">绪论<span class="map-sub">学科总论</span></div>
+            <div class="map-leaves">
+              <div class="map-leaf" style="background:var(--bg-soft);">综合性·交叉性·哲理性</div>
+            </div>
+          </div>
+          <div class="map-branch">
+            <div class="map-node" style="background:var(--green-soft);color:var(--green);">第一章<span class="map-sub">自然观（本体论）</span></div>
+            <div class="map-leaves">
+              <div class="map-leaf" style="background:var(--bg-soft);">朴素→机械→辩证</div>
+              <div class="map-leaf" style="background:var(--bg-soft);">系统·人工·生态</div>
+            </div>
+          </div>
+          <div class="map-branch">
+            <div class="map-node" style="background:var(--amber-soft);color:var(--amber);">第二章<span class="map-sub">科技观（认识论）</span></div>
+            <div class="map-leaves">
+              <div class="map-leaf" style="background:var(--bg-soft);">科学：一般生产力</div>
+              <div class="map-leaf" style="background:var(--bg-soft);">技术：现实生产力</div>
+              <div class="map-leaf" style="background:var(--accent-soft);color:var(--accent-deep);">技术异化 ⚠️</div>
+            </div>
+          </div>
+          <div class="map-branch">
+            <div class="map-node" style="background:var(--purple-soft);color:var(--purple);">第三章<span class="map-sub">方法论</span></div>
+            <div class="map-leaves">
+              <div class="map-leaf" style="background:var(--bg-soft);">辩证·创新·系统</div>
+              <div class="map-leaf" style="background:var(--bg-soft);">观察·实验·构思</div>
+            </div>
+          </div>
+          <div class="map-branch">
+            <div class="map-node" style="background:var(--teal-soft);color:var(--teal);">第四章<span class="map-sub">社会论（价值论）</span></div>
+            <div class="map-leaves">
+              <div class="map-leaf" style="background:var(--bg-soft);">双刃剑·社会建制</div>
+              <div class="map-leaf" style="background:var(--bg-soft);">默顿四规范</div>
+              <div class="map-leaf" style="background:var(--accent-soft);color:var(--accent-deep);">伦理治理 ⚠️</div>
+            </div>
+          </div>
+          <div class="map-branch">
+            <div class="map-node" style="background:var(--accent-soft);color:var(--accent);">第五章<span class="map-sub">中国化（最高潮）</span></div>
+            <div class="map-leaves">
+              <div class="map-leaf" style="background:var(--bg-soft);">创新观·人才观</div>
+              <div class="map-leaf" style="background:var(--bg-soft);">发展观·四个面向</div>
+              <div class="map-leaf" style="background:var(--accent-soft);color:var(--accent-deep);">习近平核心 ⭐</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== Section: 课程概览 ============== -->
+<section class="block" id="overview">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">概览 · 学科性质与考试套路</div>
+      <h2>自然辩证法是什么？考什么？怎么答？</h2>
+      <p class="section-sub">
+        自然辩证法是一门<b>自然科学、社会科学与思维科学相交叉的哲学性质的马克思主义理论学科</b>，具有综合性、交叉性和哲理性。
+      </p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-kicker">五大理论基石</div>
+      <div class="panel-title">从本体论到最终落脚点的完整框架</div>
+      <div class="compare-grid cols-5">
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--green);"></div>
+          <div class="card-name">自然观</div>
+          <div class="card-tag">本体论</div>
+          <div class="card-body">面对什么样的自然界？</div>
+        </div>
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--amber);"></div>
+          <div class="card-name">科技观</div>
+          <div class="card-tag">认识论</div>
+          <div class="card-body">用什么工具认识和改造自然？</div>
+        </div>
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--purple);"></div>
+          <div class="card-name">方法论</div>
+          <div class="card-tag">工具箱</div>
+          <div class="card-body">科研中应该怎么想、怎么做？</div>
+        </div>
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--teal);"></div>
+          <div class="card-name">社会论</div>
+          <div class="card-tag">价值论</div>
+          <div class="card-body">科技引发什么后果？如何治理？</div>
+        </div>
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--accent);"></div>
+          <div class="card-name">中国化</div>
+          <div class="card-tag">落脚点</div>
+          <div class="card-body">中国如何运用和发展科技？</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trick">
+      <div class="trick-tag">考试万能三段论</div>
+      <div class="trick-title">是什么 → 为什么 → 怎么做</div>
+      <div class="trick-body">
+        <b>第一段：马克思主义经典原理论述</b>（是什么）——概念定性、核心观点<br>
+        <b>第二段：当代科学技术发展事实分析</b>（为什么）——辩证关系、根源剖析<br>
+        <b>第三段：中国特色社会主义实践</b>（怎么做）——结合国家战略、政策方针升华<br><br>
+        遵循<b>"概念辨析 — 辩证关系 — 现实启示（结合当代中国科技与社会发展）"</b>的递进逻辑。
+      </div>
+    </div>
+
+    <div class="reader-note">
+      <b>研究对象：</b>自然界发展和科学技术发展的一般规律、人类认识和改造自然的一般方法以及科学技术在社会发展中的作用。<br>
+      <b>研究范围：</b>自然界 — 科学 — 技术 — 社会。<br>
+      <b>内容体系：</b>自然观 — 科学观 — 技术观 — 科学技术与社会。
+    </div>
+  </div>
+</section>
+
+<!-- ============== Section: 绪论 ============== -->
+<section class="block" id="intro">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">绪论 · 学科总论</div>
+      <h2>学科性质与当代价值</h2>
+      <p class="section-sub">
+        自然辩证法是马克思主义哲学的重要组成部分，是从具体科学技术认识上升到马克思主义普遍原理的<b>中间环节</b>。
+      </p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-kicker">当代价值 · 三大维度</div>
+      <div class="panel-title">为什么学这门课？</div>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-step-num">理论素养</div>
+          <div class="flow-step-content">
+            <h4>提高马克思主义理论水平</h4>
+            <p>运用马克思主义基本原理全面、系统、辩证地认识人与自然关系及科技发展规律</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-num">创新能力</div>
+          <div class="flow-step-content">
+            <h4>培养创新思维和创新能力</h4>
+            <p>服务于高水平科技自立自强和进入创新型国家前列的战略目标</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-num">国家战略</div>
+          <div class="flow-step-content">
+            <h4>服务中国式现代化</h4>
+            <p>深入实施科教兴国战略、人才强国战略、创新驱动发展战略，以中国式现代化全面推进中华民族伟大复兴</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-bridge">▸ 真题演练</div>
+
+    <div class="qa-block">
+      <div class="qa-question" onclick="toggleQA(this)">
+        【2019 年辨析题】为什么说自然辩证法是一个完整的科学学说体系？（15分）
+        <span class="qa-toggle">+</span>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-inner">
+          <p>自然辩证法是研究自然界和科学技术发展一般规律、人类认识自然和改造自然一般方法、以及科学技术在社会发展中的作用的科学，它是马克思主义哲学的重要组成部分，是对于人类认识自然和改造自然的成果与活动进行哲学概括与总结的产物。</p>
+          <ul>
+            <li><b>对象：</b>自然界发展和科学技术发展的一般规律、人类认识和改造自然的一般方法以及科学技术在社会发展中的作用。</li>
+            <li><b>性质：</b>是一门自然科学、社会科学与思维科学相交叉的哲学性质的学科。从自然观、认识论、方法论与价值论方面，研究科学技术及其与社会的关系。</li>
+            <li><b>内容：</b>主要以科学技术及其与社会的关系为研究内容，唯物辩证的自然观与方法论是自然辩证法的基石。</li>
+            <li><b>范围：</b>自然界—科学—技术—社会。</li>
+            <li><b>体系：</b>自然观—科学观—技术观—科学技术与社会。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-question" onclick="toggleQA(this)">
+        【2021 年真题】自然辩证法的学科性质？通过学习这门课，你学到了什么？
+        <span class="qa-toggle">+</span>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-inner">
+          <p>自然辩证法是研究自然界和科学技术发展一般规律、人类认识自然和改造自然一般方法、以及科学技术在社会发展中的作用的科学，它是马克思主义哲学的重要组成部分，是对于人类认识自然和改造自然的成果与活动进行哲学概括与总结的产物。</p>
+          <ul>
+            <li><b>对象：</b>自然界发展和科学技术发展的一般规律、人类认识和改造自然的一般方法以及科学技术在社会发展中的作用。</li>
+            <li><b>性质：</b>是一门自然科学、社会科学与思维科学相交叉的哲学性质的学科。它从自然观、认识论、方法论与价值论方面，研究科学技术及其与社会的关系，是科学技术研究的思想理论基础。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== Section: 第一章 ============== -->
+<section class="block" id="ch1">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">01 · 第一章</div>
+      <h2>马克思主义自然观 · 本体论</h2>
+      <p class="section-sub">
+        从朴素唯物主义到辩证唯物主义的历史演进，再到系统、人工、生态三大当代形态——自然观是人类认识自然的哲学总纲。
+      </p>
+    </div>
+
+    <!-- 历史三阶段 -->
+    <div class="panel">
+      <div class="panel-kicker">时间轴 · 三种历史形态</div>
+      <div class="panel-title">从朴素猜测到辩证统一的否定之否定</div>
+      <div class="compare-grid cols-3">
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--indigo);"></div>
+          <div class="card-name">朴素唯物主义</div>
+          <div class="card-tag">起点与萌芽</div>
+          <div class="card-body">
+            <b>核心观点：</b>自然界是无限多样性的统一体，处于永恒运动变化中<br>
+            <b>特征：</b>整体性、直观性、思辨性、猜测性<br>
+            <b>局限：</b>缺乏科学实证，夹杂唯心主义因素
+          </div>
+        </div>
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--amber);"></div>
+          <div class="card-name">机械唯物主义</div>
+          <div class="card-tag">反叛与过渡</div>
+          <div class="card-body">
+            <b>核心观点：</b>自然界由不可再分的微粒构成，具有绝对不变性<br>
+            <b>特征：</b>机械性、形而上学性、不彻底性<br>
+            <b>辩证作用：</b>冲破神学自然观羁绊，重视经验和数学分析
+          </div>
+        </div>
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--accent);"></div>
+          <div class="card-name">辩证唯物主义</div>
+          <div class="card-tag">确立与升华</div>
+          <div class="card-body">
+            <b>核心观点：</b>自然界是客观物质存在，是相互联系的历史过程<br>
+            <b>特征：</b>实践性、历史性、辩证性、批判性<br>
+            <b>意义：</b>实现了<b>自然史与人类史的统一、唯物论与辩证法的统一</b>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 当代三形态 -->
+    <div class="panel">
+      <div class="panel-kicker">空间轴 · 三大当代形态</div>
+      <div class="panel-title">怎么看 → 怎么做 → 向哪走</div>
+      <div class="compare-grid cols-3">
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--purple);"></div>
+          <div class="card-name">系统自然观</div>
+          <div class="card-tag">方法论 · 怎么看</div>
+          <div class="card-body">
+            <b>特征：</b>系统性、复杂性、演化性、广义性<br>
+            <b>作用：</b>提供<b>整体性、动态性的系统思维方式</b>，指导把研究对象作为系统综合整体来考察
+          </div>
+        </div>
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--amber);"></div>
+          <div class="card-name">人工自然观</div>
+          <div class="card-tag">认识论 · 怎么做</div>
+          <div class="card-body">
+            <b>特征：</b>主体性、能动性、价值性<br>
+            <b>作用：</b>拓展了自然观的研究领域，指导实现人工自然与天然自然的和谐统一
+          </div>
+        </div>
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--green);"></div>
+          <div class="card-name">生态自然观</div>
+          <div class="card-tag">价值观 · 向哪走</div>
+          <div class="card-body">
+            <b>特征：</b>全球性、批判性、和谐性<br>
+            <b>作用：</b>为贯彻新发展理念和生态文明建设奠定了<b>直接的理论基础</b>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 生态文明 -->
+    <div class="panel" style="border-color:var(--green);border-width:2px;">
+      <div class="panel-kicker" style="color:var(--green);">现实落脚点 · 习近平生态文明思想</div>
+      <div class="panel-title">"绿水青山就是金山银山"</div>
+      <div class="dual-grid">
+        <div class="dual-card green-border">
+          <div class="dc-tag" style="color:var(--green);">理论契合</div>
+          <h4>"天人合一"的当代升华</h4>
+          <p>汲取马克思主义生态观与中华古代"天人合一"智慧，明确提出"人因自然而生，人与自然是<b>生命共同体</b>"，实现了马克思主义关于人与自然关系思想的与时俱进。</p>
+        </div>
+        <div class="dual-card green-border">
+          <div class="dc-tag" style="color:var(--green);">现实意义</div>
+          <h4>指引中国式现代化与美丽中国</h4>
+          <ul>
+            <li>坚持系统观念与系统治理（山水林田湖草沙一体化保护）</li>
+            <li>推动绿色低碳科技革命</li>
+            <li>实现人与自然和谐共生的现代化</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="reader-note">
+      <b>记忆口诀：</b>朴素观——直观、整体、猜测；机械观——机械、形上、不彻底；辩证观——联系发展、生命共同体；系统观——整体、开放、演化；人工观——实践创造、人化自然；生态观——和谐共生、绿色发展。
+    </div>
+
+    <div class="visual-bridge">▸ 真题演练</div>
+
+    <div class="qa-block">
+      <div class="qa-question" onclick="toggleQA(this)">
+        【2021 年真题】生态自然观的观点有哪些？结合"绿水青山就是金山银山"谈谈看法
+        <span class="qa-toggle">+</span>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-inner">
+          <p><b>生态自然观的观点：</b></p>
+          <ol>
+            <li>生态自然界系统具有整体性、多样性、层次性、开放性、动态性、自适应性和自组织性；</li>
+            <li>人类必须敬畏自然、尊重自然、顺应自然、保护自然；</li>
+            <li>贯彻落实新发展理念，构建和谐社会，建设生态文明。</li>
+          </ol>
+          <p><b>"绿水青山就是金山银山"：</b>阐述了经济发展和生态环境保护的关系，揭示了保护生态环境就是保护生产力、改善生态环境就是发展生产力的道理。生态环境保护和经济发展不是矛盾对立的关系，而是辩证统一的关系。良好生态本身蕴含着无穷的经济价值，能够源源不断创造综合效益，实现经济社会可持续发展。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-question" onclick="toggleQA(this)">
+        【2020 年真题】近代机械唯物主义自然观的主要观点及其理论特征？结合专业谈积极作用与局限
+        <span class="qa-toggle">+</span>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-inner">
+          <p><b>主要观点：</b></p>
+          <ol>
+            <li>自然界由物质构成，物质由不可再分的微粒构成。</li>
+            <li>自然界具有绝对不变性，自然物和时间、空间都是不变的。</li>
+            <li>自然界的物质运动是受外力作用的、遵循因果规律的机械运动。</li>
+            <li>自然界受到上帝的"目的性"支配。</li>
+            <li>以形而上学的思维方式认识自然界。</li>
+            <li>人与自然界都是机器，并且是分立的。</li>
+          </ol>
+          <p><b>理论特征：</b></p>
+          <ol>
+            <li><b>机械性：</b>把自然界的所有运动都看成机械运动。</li>
+            <li><b>不彻底性：</b>既承认自然界的物质性，又主张物质运动来自上帝的"第一推动"。</li>
+            <li><b>形而上学性：</b>用孤立、静止的观点解释自然界。</li>
+          </ol>
+          <p><b>积极作用：</b>为辩证唯物主义自然观的形成创造了条件和前提。冲破了中世纪神学自然观的羁绊，促进了从神学教义到经验事实、从思辨想象到观察实验的转变。</p>
+          <p><b>局限性：</b>以机械决定论和因果决定论认识自然界，以孤立和静止的方法研究自然界，最终被辩证唯物主义自然观所取代。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== Section: 第二章 ============== -->
+<section class="block" id="ch2">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">02 · 第二章</div>
+      <h2>马克思主义科学技术观 · 认识论</h2>
+      <p class="section-sub">
+        科学的本质是<b>"一般生产力"</b>，技术的本质是<b>"直接（现实）生产力"</b>。两者日益呈现一体化的双向互动趋势。
+      </p>
+    </div>
+
+    <!-- 科学 vs 技术 -->
+    <div class="panel">
+      <div class="panel-kicker">本质对比</div>
+      <div class="panel-title">科学与技术：认识自然 vs 改造自然</div>
+      <table class="compare-table">
+        <thead>
+          <tr><th>维度</th><th>科学</th><th>技术</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>目的任务</td><td>回答"是什么""为什么"，以真理性为标准</td><td>回答"做什么""怎么做"，以效用性为标准</td></tr>
+          <tr><td>表现形态</td><td>发现，提供物化的<b>可能</b></td><td>发明，提供物化的<b>现实</b></td></tr>
+          <tr><td>生产力定位</td><td>一般生产力</td><td>直接（现实）生产力</td></tr>
+          <tr><td>特征</td><td>客观性、实证性、探索性、创造性、通用性、共享性</td><td>主体性与客体性、中立性与价值性、跃迁性与累积性</td></tr>
+          <tr><td>本质关系</td><td colspan="2" style="text-align:center">科学是技术的前提和理论基础，技术是科学的延伸并推动科学发展；当代<b>日益一体化</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 发展规律 -->
+    <div class="panel">
+      <div class="panel-kicker">发展规律</div>
+      <div class="panel-title">科学发展的"三统一" + 技术发展的"三动力"</div>
+      <div class="dual-grid">
+        <div class="dual-card">
+          <div class="dc-tag" style="color:var(--amber);">科学 · 三统一</div>
+          <h4>纵向 · 渐进与飞跃的统一</h4>
+          <p>既有原有框架内的局部深化（渐进），也有突破框架建立新体系的科学革命（飞跃）。</p>
+          <h4 style="margin-top:12px;">横向 · 分化与综合的统一</h4>
+          <p>学科越分越细，又通过交叉融合形成边缘学科和交叉学科。</p>
+          <h4 style="margin-top:12px;">总体 · 继承与创新的统一</h4>
+          <p>继承是量变，创新是质变，创新是继承的必然趋势和目的。</p>
+        </div>
+        <div class="dual-card">
+          <div class="dc-tag" style="color:var(--indigo);">技术 · 三动力</div>
+          <h4>基本动力：社会需求</h4>
+          <p>社会需求与技术发展水平之间的矛盾，经济、军事等需求是技术发展的根本牵引力。</p>
+          <h4 style="margin-top:12px;">直接动力：目的与手段</h4>
+          <p>技术目的和技术手段之间的矛盾，要实现目的必须依赖或创造出相匹配的技术手段。</p>
+          <h4 style="margin-top:12px;">重要推力：科学先导</h4>
+          <p>19世纪中期后，科学走到技术前面成为理论向导，对技术的牵引作用越来越强。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 技术异化 -->
+    <div class="trick">
+      <div class="trick-tag">极高频考点 · 技术异化</div>
+      <div class="trick-title">技术本身无罪——异化的根源是资本主义制度</div>
+      <div class="trick-body">
+        <b>第一步·现象界定：</b>科技原本是造福人类的工具，但在应用过程中成为外在的、异己的、敌对的统治力量反制人类，使人性扭曲和畸形发展。<br><br>
+        <b>第二步·深究根源：</b>机器（技术）本身不是罪恶之源，<b>资本主义的生产关系和资本逐利本性</b>才是技术异化的社会历史根源。在资本逻辑的驱使下，技术变为攫取霸权、控制劳动的工具。<br><br>
+        <b>第三步·克服路径：</b><br>
+        · <b>制度变革：</b>消灭资本主义的利用方式，通过社会主义制度将科技从资本逻辑中解放出来<br>
+        · <b>价值引导：</b>实现科技理性与人文精神的融合，树立以人为本和可持续发展的理念，建立科技伦理规范
+      </div>
+    </div>
+
+    <div class="reader-note">
+      <b>记忆口诀：</b>背本质——"科学是客观实证共享，技术是实践工具直接；科学是一般生产力，技术是现实生产力"。背异化根源——牢记"科技异化根源：资本主义制度"，只要考异化，立刻想到"甩锅给资本主义生产关系，技术本身无罪"。
+    </div>
+
+    <div class="visual-bridge">▸ 真题演练</div>
+
+    <div class="qa-block">
+      <div class="qa-question" onclick="toggleQA(this)">
+        【2021 年真题】科学发展模式，马克思主义观点与西方哲学观点有何区别？
+        <span class="qa-toggle">+</span>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-inner">
+          <p><b>马克思主义的科学发展模式（三统一）：</b></p>
+          <ol>
+            <li><b>分化到综合的统一：</b>自然科学发展的两种形式——由搜集材料转向整理材料，从研究简单运动形式转向研究复杂运动形式。</li>
+            <li><b>渐进性和飞跃性的统一：</b>渐进形式是在原有科学规范、框架之内的理论推广和局部新规律的发现。</li>
+            <li><b>继承与创新的统一：</b>继承是量变，创新是质变，创新是继承的必然趋势和目的。</li>
+          </ol>
+          <p><b>西方哲学观点：</b></p>
+          <ul>
+            <li><b>逻辑实证主义：</b>线性积累模式，知识增长是不断归纳的结果。</li>
+            <li><b>证伪主义（波普尔）：</b>科学的发展就是否定旧的、创造新的。</li>
+            <li><b>历史主义（库恩）：</b>以"范式"转换为枢纽的动态历史过程。</li>
+            <li><b>拉卡托斯：</b>"科学研究纲领"模式（硬核、保护带、启发法）。</li>
+            <li><b>武谷三男：</b>"三阶段"理论——现象论、实体论、本质论。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-question" onclick="toggleQA(this)">
+        【2020 年真题】在科学的发展模式及发展动力问题上，马克思主义的基本观点有哪些？
+        <span class="qa-toggle">+</span>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-inner">
+          <p><b>发展模式（三统一）：</b>分化到综合的统一；渐进性和飞跃性的统一；继承与创新的统一。</p>
+          <p><b>发展动力（内外动力）：</b>科学发展是内外动力共同作用的结果。外部动力：社会生产的需要推动了科学研究成果的应用。内部动力：科学实验水平的提高引发了科学理论本身的争论，迫切需要进一步完善科学理论。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== Section: 第三章 ============== -->
+<section class="block" id="ch3">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">03 · 第三章</div>
+      <h2>马克思主义科学技术方法论</h2>
+      <p class="section-sub">
+        科研的"基本逻辑与常规武器"——<b>辩证思维</b>，"突破口与宏观视野"——<b>创新思维</b>，"大局观"——<b>系统思维</b>，"动手做"——<b>实践方法</b>。
+      </p>
+    </div>
+
+    <!-- 辩证思维四对子 -->
+    <div class="panel">
+      <div class="panel-kicker">辩证思维 · 四对核心方法</div>
+      <div class="panel-title">科研的基本逻辑与常规武器</div>
+      <div class="compare-grid cols-4">
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--accent);"></div>
+          <div class="card-name">分析与综合</div>
+          <div class="card-body"><b>分析是研究（基础），综合是创造（目的）</b>。没有分析的综合不是深刻的综合。</div>
+        </div>
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--purple);"></div>
+          <div class="card-name">归纳与演绎</div>
+          <div class="card-body"><b>归纳是演绎的基础，演绎为归纳确定合理性和方向</b>。归纳从个别到一般（或然性），演绎从一般到个别（必然性）。</div>
+        </div>
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--indigo);"></div>
+          <div class="card-name">抽象到具体</div>
+          <div class="card-body">认识需要经历<b>两次飞跃</b>：感性具体→思维抽象→理性思维具体。</div>
+        </div>
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--green);"></div>
+          <div class="card-name">历史与逻辑</div>
+          <div class="card-body"><b>事物的历史从哪里开始，思维的逻辑进程也应当从哪里开始。</b></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 创新思维 -->
+    <div class="panel">
+      <div class="panel-kicker">创新思维 · 求突破</div>
+      <div class="panel-title">从发散到直觉，打破常规的创造力</div>
+      <div class="dual-grid">
+        <div class="dual-card">
+          <div class="dc-tag" style="color:var(--amber);">收敛与发散</div>
+          <h4>保持思维的张力</h4>
+          <p>发散思维（求异）从一个目标出发探求多种答案；收敛思维（求同）集中于一个方向求得逻辑化结果。<b>只发散不收敛，劳而无获；只收敛不发散，没有创造。</b></p>
+        </div>
+        <div class="dual-card">
+          <div class="dc-tag" style="color:var(--purple);">逻辑与非逻辑</div>
+          <h4>直觉与顿悟</h4>
+          <p>创新不仅需要演绎、类比等逻辑思维，更离不开想象、<b>直觉</b>和<b>顿悟（灵感）</b>等非逻辑思维。非逻辑思维开拓思路，逻辑思维整理思路。</p>
+        </div>
+      </div>
+      <div class="reader-note" style="margin-top:18px;">
+        <b>复杂性思维特点：</b>自组织性、多样性、融贯性、整体性。通过<b>移植、交叉与跨学科研究方法</b>打破单一学科局限，获得创新成果。
+      </div>
+    </div>
+
+    <!-- 实践方法 -->
+    <div class="panel">
+      <div class="panel-kicker">实践方法 · 动手做</div>
+      <div class="panel-title">科学活动 vs 技术活动</div>
+      <div class="dual-grid">
+        <div class="dual-card">
+          <div class="dc-tag" style="color:var(--indigo);">科学活动</div>
+          <h4>观察 · 实验 · 仪器 · 机遇</h4>
+          <p><b>实验与理论的双向互动：</b>实验推动理论进步，理论规范实验设计。"观察渗透理论"——观察并不是完全中性的。</p>
+          <p style="margin-top:8px;"><b>实验室四大作用：</b>①建构微观人工世界 ②隔离和突出研究对象 ③操纵和介入 ④追踪微观世界</p>
+        </div>
+        <div class="dual-card">
+          <div class="dc-tag" style="color:var(--amber);">技术活动</div>
+          <h4>构思 · 发明 · 试验 · 评估</h4>
+          <p>技术思维更关注<b>可行性与价值性</b>。方法包括构思、发明（如 TRIZ 方法）、试验、预测与评估。技术活动强调"顶天立地"。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reader-note">
+      <b>答题窍门：</b>考辩证思维四对词，第二段永远写"A 是 B 的基础/前提，B 是 A 的目的/方向，两者相互渗透"。实验室四大作用简记：<b>建构 → 隔离 → 操纵 → 追踪</b>。
+    </div>
+
+    <div class="visual-bridge">▸ 真题演练</div>
+
+    <div class="qa-block">
+      <div class="qa-question" onclick="toggleQA(this)">
+        【2021 年真题】科学技术研究的辩证思维方法有哪些？结合专业谈一谈？
+        <span class="qa-toggle">+</span>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-inner">
+          <p><b>① 分析与综合相结合：</b>分析是把对象分解为各个部分分别加以研究。综合是把各部分按内在联系统一为整体。分析与综合有机结合。<b>分析是研究，综合是创造。</b></p>
+          <p><b>② 归纳与演绎相结合：</b>归纳是从个别到一般，结论具有或然性。演绎是从一般到个别，结论具有必然性。<b>归纳是演绎的基础，演绎则为归纳确定合理性和方向。</b>归纳与演绎相互渗透、相互转化。</p>
+          <p><b>③ 历史与逻辑相统一：</b>历史方法是一种过程研究方法。逻辑是按照理性要求制定的思维规则和形式。事物的历史从哪里开始，思维的逻辑进程也应当从哪里开始。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-question" onclick="toggleQA(this)">
+        【2019 年辨析题】归纳与演绎的区别与联系（15分）
+        <span class="qa-toggle">+</span>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-inner">
+          <p><b>区别：</b></p>
+          <ol>
+            <li>归纳是从个别到一般，寻求事物普遍特征。归纳推理的结论具有<b>或然性</b>。</li>
+            <li>演绎是从对事物概括的一般性前提推论出个别性结论。演绎推理的结论具有<b>必然性</b>。</li>
+          </ol>
+          <p><b>联系：</b>归纳是演绎的基础，演绎则为归纳确定合理性和方向。归纳与演绎相互渗透、相互转化。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== Section: 第四章 ============== -->
+<section class="block" id="ch4">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">04 · 第四章</div>
+      <h2>马克思主义科学技术社会论 · 价值论</h2>
+      <p class="section-sub">
+        科技走向社会后引发什么后果？如何治理？核心框架：<b>功能（双刃剑）→ 运行（建制与规范）→ 治理（多元共治）</b>。
+      </p>
+    </div>
+
+    <!-- 双刃剑 -->
+    <div class="panel">
+      <div class="panel-kicker">社会功能 · 双刃剑效应</div>
+      <div class="panel-title">最高意义上的革命力量</div>
+      <div class="dual-grid">
+        <div class="dual-card" style="border-color:var(--green);background:var(--green-soft);">
+          <div class="dc-tag" style="color:var(--green);">正功能 · 社会红利</div>
+          <h4>经济转型 · 社会变迁 · 人类解放</h4>
+          <ul>
+            <li><b>经济转型：</b>推动产业结构升级、经济形式改变（数字经济、低碳经济），由粗放型向集约型转变</li>
+            <li><b>社会变迁：</b>引起生产关系的变革，促进社会结构再调整</li>
+            <li><b>人类解放：</b>从繁重的体力与脑力劳动中解放出来</li>
+          </ul>
+        </div>
+        <div class="dual-card accent-border">
+          <div class="dc-tag" style="color:var(--accent);">负功能 · 社会代价</div>
+          <h4>技术异化 · 生态破坏</h4>
+          <ul>
+            <li><b>技术异化：</b>科技成为外在的、异己的敌对力量反制人类</li>
+            <li><b>生态破坏：</b>追求经济效益以牺牲环境为代价，导致全球生态危机</li>
+            <li><b>根源：</b>资本主义的生产关系和资本逐利本性</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 默顿四规范 -->
+    <div class="panel">
+      <div class="panel-kicker">社会建制 · 默顿四规范</div>
+      <div class="panel-title">科学共同体的核心行为准则</div>
+      <div class="compare-grid cols-4">
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--indigo);"></div>
+          <div class="card-name">普遍主义</div>
+          <div class="card-body">科学知识不应以提出者的个人或社会属性来评价</div>
+        </div>
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--green);"></div>
+          <div class="card-name">公有主义</div>
+          <div class="card-body">科研成果属于全社会公有，不应私藏</div>
+        </div>
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--purple);"></div>
+          <div class="card-name">无私利性</div>
+          <div class="card-body">科研应以追求真理为目的，而非个人利益</div>
+        </div>
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--accent);"></div>
+          <div class="card-name">有条理的怀疑主义</div>
+          <div class="card-body">对任何科学结论都应保持审慎怀疑和批判态度</div>
+        </div>
+      </div>
+      <div class="reader-note">
+        <b>社会建制的演变：</b>从个人自由探索 → 国家计划指导 → "产学研"三螺旋深度融合。支撑体系：政治、经济、文化、教育。
+      </div>
+    </div>
+
+    <!-- 多元共治 -->
+    <div class="trick">
+      <div class="trick-tag">极高频考点 · 科技伦理与风险治理</div>
+      <div class="trick-title">打破"科学例外论"，建立多元共治</div>
+      <div class="trick-body">
+        <b>批判"科学例外论"：</b>过去有人认为科技风险评价应完全交由科学家——这是错误的，因为科技风险涉及环境、伦理、政治等多方面，超出了专家专业范围；且专家也可能受利益驱使失去客观公正。<br><br>
+        <b>"多元共治"模式：</b><br>
+        · <b>科技专家：</b>扮演"政策选择的诚实代理人"角色，提供客观评估<br>
+        · <b>公众参与：</b>作为科技风险的直接承担者，有资格参与评价与监督<br>
+        · <b>政府主导：</b>打破精英垄断，引入公众作为权利人，制定公共政策，确保风险可控<br><br>
+        <b>伦理规范：</b>坚持"公众利益优先原则"，尊重人类尊严与生命伦理，科技应服务于全人类的和平与发展。
+      </div>
+    </div>
+
+    <div class="visual-bridge">▸ 真题演练</div>
+
+    <div class="qa-block">
+      <div class="qa-question" onclick="toggleQA(this)">
+        【2020 年真题】对换头术的看法？（脑死亡后换上别人的脑）
+        <span class="qa-toggle">+</span>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-inner">
+          <ol>
+            <li><b>人道主义原则：</b>坚持善良、诚实的态度为病人服务，最大限度地满足医疗卫生保健需求。</li>
+            <li><b>公正原则：</b>不分国籍、性别、年龄、宗教、社会地位、经济状况等，坚持医学科学标准，使人人享有平等的医疗保健权。</li>
+            <li><b>整体效益原则：</b>局部利益服从整体利益，避免片面追求部门经济利益。</li>
+            <li><b>生命价值原则：</b>在医学高新技术应用中贯彻生命价值原则，尊重人的生命。</li>
+            <li><b>最佳选择原则：</b>减少应用造成的伤害和危险，减轻病人及其家属经济负担。</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-question" onclick="toggleQA(this)">
+        【2019 年材料分析题】如何看待科学技术对人的异化和对自然的异化？（15分）
+        <span class="qa-toggle">+</span>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-inner">
+          <p>科技异化实质上是在资本主义制度下劳动异化和人的异化的一种必然结果。劳动是人的最根本的实践活动，劳动的异化必然带来人的其他社会活动和社会关系的全面异化，科学技术也不例外。</p>
+          <p>最根本的是要<b>消灭对科学技术的资本主义利用方式</b>，把现代科学技术从资本主义制度下解放出来。只有通过无产阶级革命来最终解决资本主义的科技异化问题。异化的完全克服只有在共产主义社会制度中才能最终实现。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-question" onclick="toggleQA(this)">
+        【2019 年论述题】科学技术与经济转型的关系（20分）
+        <span class="qa-toggle">+</span>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-inner">
+          <ol>
+            <li>科学技术是第一生产力，科学将引发技术创新模式的改变；</li>
+            <li>科学技术推动生产力要素的变革；</li>
+            <li>科学技术促进经济结构的调整：升级产业结构、改变经济形式、转变经济增长方式。</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== Section: 第五章 ============== -->
+<section class="block" id="ch5">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">05 · 第五章 · 最高潮</div>
+      <h2>中国化马克思主义科技观</h2>
+      <p class="section-sub">
+        从毛泽东"向科学进军"到习近平"高水平科技自立自强"——逢考必有大题，<b>习近平科技观（创新观、人才观、发展观）是论述题的万能素材</b>。
+      </p>
+    </div>
+
+    <!-- 历史传承时间线 -->
+    <div class="panel">
+      <div class="panel-kicker">历史传承 · 与时俱进</div>
+      <div class="panel-title">从"站起来"到"强起来"的科技支撑</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <div class="tl-label">毛泽东 · "站起来"</div>
+            <div class="tl-title">向科学进军、自力更生</div>
+            <div class="tl-body">发出"向科学进军"号召，确立<b>独立自主、自力更生为主</b>的科技发展原则，提出"百家争鸣"方针，以尖端国防科技为重点，走赶超型科技发展道路。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <div class="tl-label">邓小平 · "富起来"</div>
+            <div class="tl-title">"科学技术是第一生产力"</div>
+            <div class="tl-body">将科技发展与经济建设紧密结合，提出<b>"科学技术是第一生产力"</b>的重大论断。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <div class="tl-label">江泽民 / 胡锦涛</div>
+            <div class="tl-title">科教兴国 → 建设创新型国家</div>
+            <div class="tl-body">江泽民提出<b>"科教兴国战略"</b>；胡锦涛提出提高自主创新能力、<b>建设创新型国家</b>的重大战略。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-card" style="border-color:var(--accent);background:var(--accent-soft);">
+            <div class="tl-label" style="color:var(--accent);">习近平 · "强起来" ⭐</div>
+            <div class="tl-title">高水平科技自立自强</div>
+            <div class="tl-body"><b>创新观、人才观、发展观</b>三驾马车，以"四个面向"为指引，新型举国体制打赢关键核心技术攻坚战。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 习近平三驾马车 -->
+    <div class="panel" style="border-color:var(--accent);border-width:2px;">
+      <div class="panel-kicker">习近平新时代科技观 · 核心中的核心</div>
+      <div class="panel-title">"三驾马车"与"一个指引"</div>
+      <div class="compare-grid cols-3">
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--accent);"></div>
+          <div class="card-name">创新观</div>
+          <div class="card-tag">动力源 · 第一动力</div>
+          <div class="card-body">
+            · 创新是引领发展的第一动力<br>
+            · 实施创新驱动发展战略<br>
+            · 强化基础研究，深化科技体制改革<br>
+            · <b>健全新型举国体制</b>，打赢关键核心技术攻坚战<br>
+            · 到 2035 年实现高水平科技自立自强
+          </div>
+        </div>
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--purple);"></div>
+          <div class="card-name">人才观</div>
+          <div class="card-tag">根基 · 第一资源</div>
+          <div class="card-body">
+            · 人才是第一资源<br>
+            · 实施新时代人才强国战略<br>
+            · 培养战略科学家、科技领军人才、卓越工程师<br>
+            · <b>教育、科技、人才一体化</b>：三者是中国式现代化的基础性、战略性支撑<br>
+            · 加快建设世界重要人才中心和创新高地
+          </div>
+        </div>
+        <div class="compare-card">
+          <div class="card-top" style="background:var(--green);"></div>
+          <div class="card-name">发展观</div>
+          <div class="card-tag">方向指引</div>
+          <div class="card-body">
+            · <b>高水平科技自立自强</b>：安全与命脉<br>
+            · 融入全球创新网络：开放与共赢<br>
+            · 绿色发展：碳达峰碳中和、节能减排<br>
+            · <b>人民至上："四个面向"</b>——面向世界科技前沿、经济主战场、国家重大需求、人民生命健康
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reader-note">
+      <b>必背金句：</b>①创新第一动力、高水平科技自立自强 ②教育·科技·人才三位一体 ③四个面向、新型举国体制、科技向善、绿色发展。
+    </div>
+
+    <div class="visual-bridge">▸ 真题演练</div>
+
+    <div class="qa-block">
+      <div class="qa-question" onclick="toggleQA(this)">
+        【2021 年材料分析题】华为在 5G 研发上取得好成绩，成功的原因是什么？
+        <span class="qa-toggle">+</span>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-inner">
+          <ol>
+            <li><b>重视创新研究：</b>只有不断研究、开发、创新新技术，最先设计、生产、销售新产品，才能在市场上具有优势，获取更大社会和经济效益。</li>
+            <li><b>注重专利保护：</b>明晰的产权制度是技术创新内部动力的基本保证。在产权明晰的前提下，企业就会由"要我创造型"变为"我要创造型"。</li>
+            <li><b>有远见，持之以恒。</b></li>
+            <li><b>雄厚的资金支持。</b></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-question" onclick="toggleQA(this)">
+        【2021 年材料分析题】结合实际，中国特色社会主义道路下如何建设创新型国家？
+        <span class="qa-toggle">+</span>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-inner">
+          <p>创新是引领发展的第一动力，是建设现代化经济体系的战略支撑。</p>
+          <ol>
+            <li>瞄准世界科技前沿，强化基础研究，实现前瞻性基础研究、引领性原创成果重大突破。</li>
+            <li>加强应用基础研究，突出关键共性技术、前沿引领技术、现代工程技术、颠覆性技术创新。</li>
+            <li>加强国家创新体系建设，强化战略科技力量。</li>
+            <li>深化科技体制改革，建立以企业为主体、市场为导向、产学研深度融合的技术创新体系。</li>
+            <li>倡导创新文化，强化知识产权创造、保护、运用。</li>
+            <li>培养造就一大批具有国际水平的战略科技人才、科技领军人才、青年科技人才和高水平创新团队。</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-question" onclick="toggleQA(this)">
+        【2019 年材料分析题】科学技术创新观（15分）
+        <span class="qa-toggle">+</span>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-inner">
+          <p><b>毛泽东思想中的科技创新观：</b></p>
+          <ol>
+            <li>科技创新功能论：格外重视科技创新的生产力功能和军事功能。</li>
+            <li>自力更生与学习西方先进科学技术的科技创新途径论。</li>
+            <li>以尖端国防科技为重点，走赶超型科技发展道路。</li>
+          </ol>
+          <p><b>习近平新时代中国特色社会主义思想中的科技创新观：</b></p>
+          <ol>
+            <li>科技创新目标：建成创新型国家，建设世界科技强国。</li>
+            <li>创新是引领发展的第一动力。</li>
+            <li>实施创新驱动发展战略，推进以科技创新为核心的全面创新。</li>
+            <li>走中国特色自主创新道路。</li>
+            <li>加快科技体制改革步伐，加强科技文化建设。</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== Section: 论述题实战示范 ============== -->
+<section class="block" id="practice">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-num">实战 · 论述题示范</div>
+      <h2>万能三段论实战案例</h2>
+      <p class="section-sub">
+        不论题目如何千变万化，第一段解释核心名词，第二段用辩证思维推导，第三段硬靠到"中国特色社会主义实践"上。
+      </p>
+    </div>
+
+    <!-- 案例1 -->
+    <div class="qa-block">
+      <div class="qa-question" onclick="toggleQA(this)">
+        实战案例一：如何认识生态自然观和生态文明建设之间的辩证关系？
+        <span class="qa-toggle">+</span>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-inner">
+          <p><b>第一步·是什么（原理论述）：</b>生态自然界系统具有整体性、多样性、层次性、开放性等特征，是天然自然界和人工自然界的统一，也是人类文明发展的目标。生态文明则是通过不断完善社会制度、改善价值观念，促进经济、社会和环境协调发展，建设人与自然和谐统一的新的社会文明。</p>
+          <p><b>第二步·为什么（辩证关系）：</b>生态自然观强调重新审视和辩证理解"人类中心主义"，正确认识人类与生态系统的关系，这为建设生态文明奠定了理论基础。只有实现从非生态型人工自然界转向生态型人工自然界，才能实现人和自然界的可持续发展。</p>
+          <p><b>第三步·怎么做（中国实践）：</b>建设生态文明必须贯彻落实新发展理念，实施节能减排和发展低碳经济。树立尊重自然、顺应自然、保护自然的生态文明理念，坚持节约优先、保护优先、自然恢复为主的方针，把生态文明建设放在突出地位，努力建设美丽中国，实现中华民族永续发展。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 案例2 -->
+    <div class="qa-block">
+      <div class="qa-question" onclick="toggleQA(this)">
+        实战案例二：如何理解科技是一把双刃剑？如何看待科技对人类异化和对自然异化？
+        <span class="qa-toggle">+</span>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-inner">
+          <p><b>第一步·是什么（现象描述）：</b>科技的使用在一定方面产生对人有益的效果，呼唤出无与伦比的生产力，极大改变了人类生产和生活方式。但若使用不当，科技也会产生破坏作用，表现为对人类异化和对自然异化，成为人自由发展的桎梏。</p>
+          <p><b>第二步·为什么（深究根源）：</b>从机制上看，技术发挥作用是由"非常态"向"常态"的复杂引入过程，稍有不慎就会带来害处。更深刻的社会根源在于，<b>技术本身不是罪恶之源，技术异化的根源在于资本主义社会中资本的逻辑</b>。</p>
+          <p><b>第三步·怎么做（伦理治理）：</b>为消除科技的负效应，需要加强基础科学研究，加强技术评估。更为关键的是要加强社会改造，将科学技术私有观转变为公有观。以人文理性引导工具理性，确保科技造福于人类。最根本的是消灭对科学技术的资本主义利用方式。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 案例3 -->
+    <div class="qa-block">
+      <div class="qa-question" onclick="toggleQA(this)">
+        实战案例三：如何理解技术创新？中国怎样才能建设成为创新型国家？
+        <span class="qa-toggle">+</span>
+      </div>
+      <div class="qa-answer">
+        <div class="qa-answer-inner">
+          <p><b>第一步·是什么（时代背景与概念）：</b>技术创新本质上是技术资源和产业资源整合配置的过程和结果，包括原始创新、集成创新和引进消化吸收再创新。创新型国家则是将国内各种创新活动看成一个系统的整体。</p>
+          <p><b>第二步·为什么（战略意义）：</b>我国过去奉行"以市场换技术"策略，但实践证明核心技术是买不来的，缺乏自主知识产权使我们在诸多技术领域受制于人。依靠科技创新提升国家综合国力和核心竞争力，已成为提高国际竞争力的客观需要。</p>
+          <p><b>第三步·怎么做（对策）：</b>①发挥政府在国家创新中的举足轻重作用，加大科技投入并完善宏观管理体系；②确立企业在创新中的主体地位，形成产学研紧密结合的创新体系；③紧跟"绿色浪潮"，大力发展新能源技术和产业；最终实现高水平科技自立自强。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="trick">
+      <div class="trick-tag">考试策略总结</div>
+      <div class="trick-title">六个考场生存法则</div>
+      <div class="trick-body">
+        <b>1. 万能三段论牢记于心：</b>是什么 → 为什么 → 怎么做<br>
+        <b>2. 四个万能落脚点：</b>创新驱动、生态文明、以人为本、高水平科技自立自强<br>
+        <b>3. 技术异化题铁律：</b>"甩锅"给资本主义制度，技术本身无罪。对策：社会主义制度+科技向善+人文引领<br>
+        <b>4. 高频交叉考点：</b>生态自然观↔习近平生态文明思想（一五章联动）；技术异化↔科技伦理治理（二四章联动）<br>
+        <b>5. 第五章是终极弹药库：</b>逢考必有大题，习近平科技观是万能素材<br>
+        <b>6. 必背数字归纳：</b>默顿四规范、实验室四大作用、辩证思维四对子
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== Footer ============== -->
+<footer class="site-foot">
+  <div class="container">
+    <div class="foot-quote">星光不问赶路人，时光不负有心人。</div>
+    <div>愿你在考场上才思泉涌，笔下生花，将马恩哲思与当代中国科技发展的壮阔实践融会贯通，交出一份让自己满意的答卷。</div>
+    <div style="margin-top:16px;">
+      <b style="color:var(--text);">整理人：</b>莲子心 &nbsp;|&nbsp; <b style="color:var(--text);">整理时间：</b>2026 年 5 月
+    </div>
+  </div>
+</footer>
+
+<!-- ============== JavaScript ============== -->
+<script>
+// Q&A Toggle
+function toggleQA(el) {
+  var block = el.parentElement;
+  var answer = block.querySelector('.qa-answer');
+  if (block.classList.contains('open')) {
+    block.classList.remove('open');
+    answer.style.maxHeight = '0';
+  } else {
+    block.classList.add('open');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
+
+// Back to Top
+var backTop = document.getElementById('backTop');
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 600) {
+    backTop.classList.add('visible');
+  } else {
+    backTop.classList.remove('visible');
+  }
+});
+
+// Progress Bar
+var progressBar = document.getElementById('progressBar');
+window.addEventListener('scroll', function() {
+  var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var progress = (scrollTop / scrollHeight) * 100;
+  progressBar.style.width = progress + '%';
+});
+</script>
+
+</body>
+</html>
