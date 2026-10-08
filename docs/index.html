@@ -1,696 +1,131 @@
 <!doctype html>
 <html lang="zh-CN">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>莲子心 · 个人主页</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com/" />
-		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap"
-			rel="stylesheet"
-		/>
-		<style>
-			:root {
-				--color-primary: #6366f1;
-				--color-secondary: #8b5cf6;
-				--color-accent: #ec4899;
-				--color-success: #10b981;
-				--color-blue: #3b82f6;
-
-				--bg-primary: #0f172a;
-				--bg-secondary: #1e293b;
-				--bg-card: rgba(255, 255, 255, 0.08);
-				--bg-card-hover: rgba(255, 255, 255, 0.12);
-
-				--text-primary: #ffffff;
-				--text-secondary: #94a3b8;
-				--text-tertiary: #64748b;
-
-				--border-subtle: rgba(255, 255, 255, 0.1);
-				--border-accent: #6366f1;
-
-				--radius-sm: 8px;
-				--radius-md: 12px;
-				--radius-lg: 16px;
-				--radius-xl: 20px;
-				--radius-full: 9999px;
-
-				--shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
-				--shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
-				--shadow-lg: 0 6px 16px rgba(0, 0, 0, 0.4);
-			}
-
-			* {
-				box-sizing: border-box;
-				margin: 0;
-				padding: 0;
-			}
-
-			html {
-				scroll-behavior: smooth;
-			}
-
-			body {
-				font-family: "Inter", "Noto Sans SC", -apple-system,
-					BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-				background: var(--bg-primary);
-				color: var(--text-primary);
-				line-height: 1.6;
-				font-size: 16px;
-				-webkit-font-smoothing: antialiased;
-				min-height: 100vh;
-				overflow-x: hidden;
-			}
-
-			/* Grid background */
-			body::before {
-				content: "";
-				position: fixed;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='%236366F1' stroke-width='0.5' opacity='0.06'/%3E%3C/svg%3E");
-				pointer-events: none;
-				z-index: 0;
-			}
-
-			a {
-				color: var(--color-blue);
-				text-decoration: none;
-				transition: color 0.2s ease;
-			}
-			a:hover {
-				color: var(--color-primary);
-			}
-
-			.container {
-				max-width: 960px;
-				margin: 0 auto;
-				padding: 0 24px;
-				position: relative;
-				z-index: 1;
-			}
-
-			/* ---- Navigation ---- */
-			nav {
-				position: fixed;
-				top: 24px;
-				left: 50%;
-				transform: translateX(-50%);
-				background: rgba(30, 41, 59, 0.8);
-				border-radius: 24px;
-				border: 1px solid var(--border-subtle);
-				backdrop-filter: blur(8px);
-				-webkit-backdrop-filter: blur(8px);
-				padding: 8px 16px;
-				display: flex;
-				gap: 4px;
-				z-index: 100;
-			}
-			nav a {
-				padding: 8px 16px;
-				border-radius: 24px;
-				color: var(--text-secondary);
-				font-size: 14px;
-				font-weight: 500;
-				transition: all 0.2s ease;
-			}
-			nav a:hover {
-				color: var(--text-primary);
-				background: var(--bg-card);
-			}
-
-			/* ---- Hero ---- */
-			.hero {
-				min-height: 100vh;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				text-align: center;
-				position: relative;
-				padding: 80px 0;
-			}
-
-			.hero-glow {
-				position: absolute;
-				border-radius: 50%;
-				pointer-events: none;
-			}
-			.hero-glow.g1 {
-				width: 500px;
-				height: 500px;
-				top: -100px;
-				right: -100px;
-				background: radial-gradient(
-					circle,
-					rgba(99, 102, 241, 0.12) 0%,
-					transparent 60%
-				);
-			}
-			.hero-glow.g2 {
-				width: 400px;
-				height: 400px;
-				bottom: -50px;
-				left: -80px;
-				background: radial-gradient(
-					circle,
-					rgba(139, 92, 246, 0.1) 0%,
-					transparent 60%
-				);
-			}
-			.hero-glow.g3 {
-				width: 300px;
-				height: 300px;
-				top: 30%;
-				left: 50%;
-				transform: translateX(-50%);
-				background: radial-gradient(
-					circle,
-					rgba(236, 72, 153, 0.06) 0%,
-					transparent 60%
-				);
-			}
-
-			.hero-content {
-				position: relative;
-				z-index: 1;
-			}
-
-			.hero-badge {
-				display: inline-block;
-				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-				border-radius: var(--radius-full);
-				padding: 8px 20px;
-				font-size: 13px;
-				font-weight: 600;
-				letter-spacing: 2px;
-				color: var(--text-primary);
-				margin-bottom: 32px;
-				text-transform: uppercase;
-			}
-
-			.hero h1 {
-				font-size: clamp(40px, 7vw, 72px);
-				font-weight: 900;
-				line-height: 1.1;
-				letter-spacing: -0.02em;
-				margin-bottom: 16px;
-			}
-			.hero h1 .gradient-text {
-				background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-				background-clip: text;
-			}
-
-			.hero-sub {
-				font-size: 20px;
-				color: var(--text-secondary);
-				max-width: 540px;
-				margin: 0 auto 40px;
-				line-height: 1.6;
-				font-weight: 300;
-			}
-
-			.hero-links {
-				display: flex;
-				gap: 16px;
-				justify-content: center;
-				flex-wrap: wrap;
-			}
-
-			.btn {
-				display: inline-flex;
-				align-items: center;
-				gap: 8px;
-				padding: 12px 28px;
-				border-radius: var(--radius-full);
-				font-size: 15px;
-				font-weight: 600;
-				transition: all 0.2s ease;
-				cursor: pointer;
-				border: none;
-			}
-			.btn-primary {
-				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-				color: var(--text-primary);
-			}
-			.btn-primary:hover {
-				transform: translateY(-2px);
-				box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
-			}
-			.btn-outline {
-				background: transparent;
-				color: var(--text-primary);
-				border: 1px solid var(--border-subtle);
-			}
-			.btn-outline:hover {
-				background: var(--bg-card);
-				border-color: rgba(255, 255, 255, 0.2);
-			}
-
-			/* ---- Sections ---- */
-			section {
-				padding: 80px 0;
-			}
-
-			.section-label {
-				font-size: 12px;
-				font-weight: 700;
-				letter-spacing: 2px;
-				text-transform: uppercase;
-				color: var(--color-primary);
-				margin-bottom: 12px;
-			}
-
-			.section-title {
-				font-size: 36px;
-				font-weight: 700;
-				letter-spacing: -0.02em;
-				margin-bottom: 48px;
-				line-height: 1.2;
-			}
-
-			/* ---- About ---- */
-			.about-grid {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 24px;
-			}
-
-			.glass-card {
-				background: var(--bg-card);
-				border: 1px solid var(--border-subtle);
-				border-radius: var(--radius-lg);
-				padding: 24px;
-				backdrop-filter: blur(8px);
-				-webkit-backdrop-filter: blur(8px);
-				transition: all 0.2s ease;
-			}
-			.glass-card:hover {
-				background: var(--bg-card-hover);
-				border-color: rgba(255, 255, 255, 0.15);
-			}
-
-			.glass-card .card-icon {
-				width: 44px;
-				height: 44px;
-				border-radius: var(--radius-md);
-				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-				display: grid;
-				place-items: center;
-				margin-bottom: 16px;
-				font-size: 20px;
-			}
-
-			.glass-card h3 {
-				font-size: 18px;
-				font-weight: 700;
-				margin-bottom: 8px;
-			}
-
-			.glass-card p {
-				font-size: 14px;
-				color: var(--text-secondary);
-				line-height: 1.6;
-			}
-
-			/* ---- Projects ---- */
-			.projects-grid {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 24px;
-			}
-
-			.project-card {
-				background: var(--bg-secondary);
-				border: 1px solid var(--border-subtle);
-				border-radius: var(--radius-lg);
-				padding: 24px;
-				transition: all 0.2s ease;
-				position: relative;
-				overflow: hidden;
-			}
-			.project-card:hover {
-				border-color: var(--color-primary);
-				transform: translateY(-2px);
-				box-shadow: var(--shadow-md);
-			}
-
-			.project-card .project-tag {
-				display: inline-block;
-				font-size: 11px;
-				font-weight: 700;
-				letter-spacing: 1px;
-				text-transform: uppercase;
-				border-radius: 14px;
-				padding: 4px 12px;
-				margin-bottom: 16px;
-			}
-			.tag-blue {
-				background: rgba(59, 130, 246, 0.15);
-				color: #3b82f6;
-			}
-			.tag-purple {
-				background: rgba(139, 92, 246, 0.15);
-				color: #8b5cf6;
-			}
-			.tag-green {
-				background: rgba(16, 185, 129, 0.15);
-				color: #10b981;
-			}
-			.tag-pink {
-				background: rgba(236, 72, 153, 0.15);
-				color: #ec4899;
-			}
-
-			.project-card h3 {
-				font-size: 20px;
-				font-weight: 700;
-				margin-bottom: 8px;
-			}
-
-			.project-card p {
-				font-size: 14px;
-				color: var(--text-secondary);
-				line-height: 1.6;
-				margin-bottom: 16px;
-			}
-
-			.project-card .project-link {
-				font-size: 14px;
-				font-weight: 500;
-				color: var(--color-primary);
-				display: inline-flex;
-				align-items: center;
-				gap: 6px;
-			}
-			.project-card .project-link:hover {
-				color: var(--color-secondary);
-			}
-
-			/* ---- Timeline ---- */
-			.timeline {
-				position: relative;
-				padding-left: 32px;
-			}
-			.timeline::before {
-				content: "";
-				position: absolute;
-				left: 7px;
-				top: 8px;
-				bottom: 8px;
-				width: 2px;
-				background: linear-gradient(
-					to bottom,
-					var(--color-primary),
-					var(--color-accent)
-				);
-				border-radius: 1px;
-			}
-
-			.timeline-item {
-				position: relative;
-				margin-bottom: 32px;
-			}
-			.timeline-item:last-child {
-				margin-bottom: 0;
-			}
-			.timeline-item::before {
-				content: "";
-				position: absolute;
-				left: -28px;
-				top: 6px;
-				width: 12px;
-				height: 12px;
-				border-radius: 50%;
-				background: var(--color-primary);
-				border: 3px solid var(--bg-primary);
-				box-shadow: 0 0 0 2px var(--color-primary);
-			}
-
-			.timeline-card {
-				background: var(--bg-card);
-				border: 1px solid var(--border-subtle);
-				border-radius: var(--radius-md);
-				padding: 20px;
-			}
-
-			.timeline-date {
-				font-family: "JetBrains Mono", monospace;
-				font-size: 12px;
-				font-weight: 600;
-				color: var(--color-primary);
-				letter-spacing: 0.5px;
-				margin-bottom: 6px;
-			}
-
-			.timeline-card h4 {
-				font-size: 16px;
-				font-weight: 700;
-				margin-bottom: 4px;
-			}
-
-			.timeline-card p {
-				font-size: 14px;
-				color: var(--text-secondary);
-				line-height: 1.5;
-			}
-
-			/* ---- Footer ---- */
-			footer {
-				border-top: 1px solid var(--border-subtle);
-				padding: 40px 0;
-				text-align: center;
-			}
-
-			footer p {
-				font-size: 14px;
-				color: var(--text-tertiary);
-			}
-
-			.footer-links {
-				display: flex;
-				gap: 24px;
-				justify-content: center;
-				margin-bottom: 16px;
-			}
-
-			.footer-links a {
-				color: var(--text-secondary);
-				font-size: 14px;
-				transition: color 0.2s ease;
-			}
-			.footer-links a:hover {
-				color: var(--text-primary);
-			}
-
-			/* ---- Gradient divider ---- */
-			.divider {
-				width: 120px;
-				height: 3px;
-				margin: 0 auto;
-				border-radius: 2px;
-				background: linear-gradient(
-					90deg,
-					#8b5cf6,
-					#a855f7 40%,
-					#ec4899
-				);
-				opacity: 0.6;
-			}
-
-			/* ---- Responsive ---- */
-			@media (max-width: 768px) {
-				nav {
-					top: auto;
-					bottom: 16px;
-					padding: 6px 12px;
-				}
-				nav a {
-					padding: 6px 12px;
-					font-size: 13px;
-				}
-				.hero {
-					padding: 100px 0 60px;
-				}
-				.about-grid,
-				.projects-grid {
-					grid-template-columns: 1fr;
-				}
-				section {
-					padding: 48px 0;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<!-- Navigation -->
-		<nav>
-			<a href="#about">关于</a>
-			<a href="#projects">项目</a>
-			<a href="#journey">历程</a>
-		</nav>
-
-		<!-- Hero -->
-		<section class="hero">
-			<div class="hero-glow g1"></div>
-			<div class="hero-glow g2"></div>
-			<div class="hero-glow g3"></div>
-			<div class="hero-content">
-				<div class="hero-badge">Hello World</div>
-				<h1>
-					你好，我是<br />
-					<span class="gradient-text">莲子心</span>
-				</h1>
-				<p class="hero-sub">
-					一个热爱技术与知识整理的探索者，喜欢用代码和文字让复杂事物变得清晰。
-				</p>
-				<div class="hero-links">
-					<a href="#projects" class="btn btn-primary">查看项目 &rarr;</a>
-					<a href="https://github.com/lzxlchlcx" class="btn btn-outline"
-						>GitHub</a
-					>
-				</div>
-			</div>
-		</section>
-
-		<!-- About -->
-		<section id="about">
-			<div class="container">
-				<div class="section-label">About</div>
-				<h2 class="section-title">关于我</h2>
-				<div class="about-grid">
-					<div class="glass-card">
-						<div class="card-icon">&#128218;</div>
-						<h3>知识整理</h3>
-						<p>
-							善于将课程内容系统化梳理，制作可视化复习手册和答题模板，让复杂的知识点变得直观易懂。
-						</p>
-					</div>
-					<div class="glass-card">
-						<div class="card-icon">&#128187;</div>
-						<h3>技术探索</h3>
-						<p>
-							对编程和新技术保持好奇心，喜欢动手实践，从网页开发到 AI
-							应用，持续学习并记录。
-						</p>
-					</div>
-					<div class="glass-card">
-						<div class="card-icon">&#9997;&#65039;</div>
-						<h3>笔记写作</h3>
-						<p>
-							使用 Obsidian 等 PKM
-							工具管理个人知识库，相信好的笔记是对未来的投资。
-						</p>
-					</div>
-					<div class="glass-card">
-						<div class="card-icon">&#127912;</div>
-						<h3>设计审美</h3>
-						<p>
-							注重内容的视觉呈现，追求 Material Design
-							风格的简洁与优雅，让信息传达更高效。
-						</p>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Projects -->
-		<section id="projects">
-			<div class="container">
-				<div class="section-label">Projects</div>
-				<h2 class="section-title">项目作品</h2>
-				<div class="projects-grid">
-					<div class="project-card">
-						<span class="project-tag tag-purple">课程</span>
-						<h3>自然辩证法复习总手册</h3>
-						<p>
-							涵盖五大理论板块的系统梳理，配套真题解析与万能答题模板，可视化阅读体验。
-						</p>
-						<a href="./visual-reading/" class="project-link"
-							>查看详情 &rarr;</a
-						>
-					</div>
-					<div class="project-card">
-						<span class="project-tag tag-blue">知识库</span>
-						<h3>个人 Wiki</h3>
-						<p>
-							基于 Obsidian 的个人知识管理系统，涵盖技术笔记、阅读报告和学习资源。
-						</p>
-						<a href="#" class="project-link">建设中...</a>
-					</div>
-					<div class="project-card">
-						<span class="project-tag tag-green">开源</span>
-						<h3>GitHub 项目</h3>
-						<p>
-							日常开发的代码仓库，包括工具脚本、前端实验和其他有趣的小项目。
-						</p>
-						<a
-							href="https://github.com/lzxlchlcx"
-							class="project-link"
-							>GitHub &rarr;</a
-						>
-					</div>
-					<div class="project-card">
-						<span class="project-tag tag-pink">待更新</span>
-						<h3>更多项目</h3>
-						<p>持续构建中，敬请期待更多有趣的作品和分享。</p>
-						<a href="#" class="project-link">Stay tuned</a>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Journey -->
-		<section id="journey">
-			<div class="container">
-				<div class="section-label">Journey</div>
-				<h2 class="section-title">学习历程</h2>
-				<div class="timeline">
-					<div class="timeline-item">
-						<div class="timeline-card">
-							<div class="timeline-date">2026.05</div>
-							<h4>自然辩证法可视化复习手册上线</h4>
-							<p>
-								完成五大板块的系统整理，制作 Material Design 风格的网页版复习手册。
-							</p>
-						</div>
-					</div>
-					<div class="timeline-item">
-						<div class="timeline-card">
-							<div class="timeline-date">2026</div>
-							<h4>持续学习中</h4>
-							<p>
-								探索 AI 工具、知识管理方法论，不断完善个人 Wiki 和项目仓库。
-							</p>
-						</div>
-					</div>
-					<div class="timeline-item">
-						<div class="timeline-card">
-							<div class="timeline-date">ongoing</div>
-							<h4>保持好奇，持续构建</h4>
-							<p>
-								用代码和文字记录成长，相信每一步积累都有意义。
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Footer -->
-		<footer>
-			<div class="container">
-				<div class="footer-links">
-					<a href="https://github.com/lzxlchlcx">GitHub</a>
-					<a href="./visual-reading/自然辩证法">复习手册</a>
-				</div>
-				<div class="divider" style="margin-bottom: 16px"></div>
-				<p>&copy; 2026 莲子心 · Built with curiosity</p>
-			</div>
-		</footer>
-	</body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#030811" />
+  <meta name="description" content="莲子心的个人宇宙。记录技术探索、知识整理与成长，在未知中保持好奇。" />
+  <title>莲子心 · 个人宇宙</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect rx='16' width='64' height='64' fill='%23030811'/%3E%3Cpath d='M32 10Q10 30 32 52Q54 30 32 10ZM32 52Q7 44 7 23Q31 23 32 52ZM32 52Q57 44 57 23Q33 23 32 52Z' fill='none' stroke='%2376d9e5' stroke-width='2'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./assets/home.css" />
+  <script src="./assets/orb.js" defer></script>
+  <script src="./assets/atmosphere.js" defer></script>
+  <script src="./assets/home.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#about">跳至个人介绍</a>
+  <div class="universe" aria-hidden="true">
+    <div class="nebula nebula-blue"></div><div class="nebula nebula-violet"></div>
+    <div class="aurora aurora-one"></div><div class="aurora aurora-two"></div>
+    <svg class="aurora-ribbons" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="sky-light"><stop stop-color="#2c9ca8" stop-opacity="0"/><stop offset=".4" stop-color="#49c6ce"/><stop offset=".7" stop-color="#287899"/><stop offset="1" stop-color="#7370b9" stop-opacity="0"/></linearGradient><filter id="sky-blur"><feGaussianBlur stdDeviation="27"/></filter></defs><g fill="none" stroke="url(#sky-light)" filter="url(#sky-blur)"><path d="M-180 540C240 650 240 40 630 150S1030 530 1310 45S1630 20 1800 310" stroke-width="70" opacity=".25"/><path d="M-200 570C260 680 285 95 660 195S1080 550 1350 80S1680 60 1840 370" stroke-width="26" opacity=".45"/><path d="M60 1010C360 470 780 850 1000 470S1480 260 1750 170" stroke-width="150" opacity=".08"/></g></svg>
+    <canvas id="starfield"></canvas><div class="universe-vignette"></div>
+  </div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="莲子心，返回首屏"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 5Q6 19 20 35Q34 19 20 5ZM20 35Q3 30 3 13Q19 13 20 35ZM20 35Q37 30 37 13Q21 13 20 35Z" /></svg><span>莲子心<span class="brand-en">LIAN ZI XIN</span></span></a>
+    <nav class="top-nav" aria-label="主导航"><a href="#about">关于我</a><a href="#blog">博客</a><a href="#interests">兴趣爱好</a><a href="#journey">经历</a></nav>
+    <a class="github-link" href="https://github.com/lzxlchlcx" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+  </header>
+  <nav class="page-dots" aria-label="屏幕分页">
+    <a class="is-current" href="#home" aria-label="首屏" aria-current="location"><span>首屏</span></a>
+    <a href="#about" aria-label="关于我"><span>关于我</span></a><a href="#blog" aria-label="博客"><span>博客</span></a><a href="#interests" aria-label="兴趣爱好"><span>兴趣爱好</span></a><a href="#journey" aria-label="经历"><span>经历</span></a>
+  </nav>
+  <main>
+    <section id="home" class="screen hero is-visible" aria-labelledby="hero-title">
+      <div class="hero-haze" aria-hidden="true"></div>
+      <div class="scene" aria-hidden="true"><div class="figure-layer"><img class="mystic" src="./assets/guardian-gloved.webp" alt="" fetchpriority="high" /></div><div class="hand-layer"><img class="mystic" src="./assets/guardian-gloved.webp" alt="" /></div><div class="palm-light"></div><div class="foreground-mist"></div></div>
+      <div class="hero-copy"><p class="eyebrow"><span></span> A PERSONAL UNIVERSE <span></span></p><h1 id="hero-title">莲子心</h1><p class="hero-motto">在未知中，保持好奇。</p></div>
+      <div class="orb-system">
+        <div class="orb-halo" aria-hidden="true"></div><div class="energy-pulse" aria-hidden="true"></div>
+        <svg class="orbit-paths" viewBox="0 0 640 460" aria-hidden="true"><ellipse cx="320" cy="230" rx="258" ry="143" /><path d="M99 154L221 198M419 198L541 154M99 310L219 262M421 262L541 310" /></svg>
+        <button id="orb-toggle" class="orb-button" aria-label="探索球体，展开四个导航入口" aria-expanded="false" aria-controls="orb-navigation" aria-describedby="orb-hint"><canvas id="orb-canvas" aria-hidden="true"></canvas><span class="orb-fallback" aria-hidden="true"></span></button>
+        <nav id="orb-navigation" class="orb-navigation" aria-label="球体导航" inert>
+          <a href="#about" class="orb-node node-about"><span class="node-spark" aria-hidden="true"></span><span><small>01 / ABOUT</small>关于我</span><span class="node-arrow" aria-hidden="true">↗</span></a>
+          <a href="#blog" class="orb-node node-blog"><span class="node-spark" aria-hidden="true"></span><span><small>02 / JOURNAL</small>博客</span><span class="node-arrow" aria-hidden="true">↗</span></a>
+          <a href="#interests" class="orb-node node-interests"><span class="node-spark" aria-hidden="true"></span><span><small>03 / PASSIONS</small>兴趣爱好</span><span class="node-arrow" aria-hidden="true">↗</span></a>
+          <a href="#journey" class="orb-node node-journey"><span class="node-spark" aria-hidden="true"></span><span><small>04 / JOURNEY</small>经历</span><span class="node-arrow" aria-hidden="true">↗</span></a>
+        </nav>
+        <p id="orb-hint" class="orb-hint"><span class="hint-mark" aria-hidden="true">✧</span><span class="hint-label">轻触球体，开启探索</span></p>
+      </div>
+      <div class="hero-footer"><span class="coordinate">CURIOSITY IS A COMPASS</span><a class="scroll-cue" href="#about"><span>向下，走进我的世界</span><i aria-hidden="true"></i></a><span class="screen-count"><b>01</b> / 05</span></div>
+    </section>
+    <section id="about" class="screen content-screen" aria-labelledby="about-title">
+      <div class="section-shell">
+        <div class="section-heading"><span class="eyebrow">01 / ABOUT ME</span><span class="section-note">每个宇宙，都始于一点好奇。</span></div>
+        <article class="content-panel">
+          <div class="panel-copy">
+            <p class="small-label">你好，很高兴遇见你</p><h2 id="about-title" tabindex="-1">关于我<span class="title-star" aria-hidden="true">✧</span></h2>
+            <p class="lead">用代码与文字，<br />让复杂的事物变得清晰。</p>
+            <p class="body-copy">我是莲子心，一个热爱技术与知识整理的探索者。从网页开发到 AI 应用，我喜欢动手实践，也喜欢把学习过程认真记录下来。</p>
+            <dl class="focus-list"><div><dt>知识整理</dt><dd>系统梳理课程，制作可视化复习手册与答题模板。</dd></div><div><dt>技术探索</dt><dd>对编程与新技术保持好奇，在实践中持续学习。</dd></div><div><dt>笔记写作</dt><dd>用 Obsidian 管理个人知识库，为未来积累线索。</dd></div></dl>
+            <a class="text-link" href="https://github.com/lzxlchlcx" target="_blank" rel="noopener noreferrer">在 GitHub 看看我的探索 <span aria-hidden="true">↗</span></a>
+          </div>
+          <figure class="panel-image about-image"><img src="./assets/about-art.webp" data-fallback="./assets/about.svg" alt="星空书房中的匿名知识探索者，主题概念插画" loading="lazy" width="900" height="1000" /><figcaption><span>THE ART OF EXPLORING</span><span>主题插画 · 个人照片待补充</span></figcaption></figure>
+        </article>
+        <div class="section-footer"><span>不断学习，也不断发现自己。</span><a href="#blog">下一站 · 博客 <span aria-hidden="true">↓</span></a></div>
+      </div>
+    </section>
+    <section id="blog" class="screen content-screen" aria-labelledby="blog-title">
+      <div class="section-shell">
+        <div class="section-heading"><span class="eyebrow">02 / JOURNAL</span><span class="section-note">把思考留在纸上，把线索留给未来。</span></div>
+        <article class="content-panel">
+          <div class="panel-copy">
+            <p class="small-label">文字，是另一种探索</p><h2 id="blog-title" tabindex="-1">博客<span class="title-star" aria-hidden="true">✧</span></h2>
+            <p class="body-copy">关于学习、技术与知识管理的记录。整理过的知识，可以在下一次需要时发光。</p>
+            <a class="featured-article" href="./visual-reading/自然辩证法.html"><div class="article-meta"><span>精选阅读</span><span>知识整理 / 2026</span></div><h3>自然辩证法<br />复习总手册</h3><p>五大理论板块的系统梳理，配套真题解析与答题模板，带来更直观的可视化阅读体验。</p><span class="text-link">打开复习手册 <span aria-hidden="true">↗</span></span></a>
+            <div class="upcoming-note"><span class="status-dot" aria-hidden="true"></span><div><strong>个人 Wiki · 整理中</strong><p>技术笔记、阅读报告与学习资源。<br />更多文章待补充。</p></div></div>
+          </div>
+          <figure class="panel-image writing-image"><a href="./visual-reading/自然辩证法.html" aria-label="阅读自然辩证法复习总手册"><img src="./assets/writing.svg" alt="自然辩证法复习总手册主题封面" loading="lazy" /></a><figcaption><span>NOTES TO THE FUTURE</span><span>课程笔记 · 可视化阅读</span></figcaption></figure>
+        </article>
+        <div class="section-footer"><span>好的笔记，是对未来的投资。</span><a href="#interests">下一站 · 兴趣爱好 <span aria-hidden="true">↓</span></a></div>
+      </div>
+    </section>
+    <section id="interests" class="screen content-screen" aria-labelledby="interests-title">
+      <div class="section-shell">
+        <div class="section-heading"><span class="eyebrow">03 / PASSIONS</span><span class="section-note">兴趣，是探索没有边界的理由。</span></div>
+        <article class="content-panel">
+          <div class="panel-copy">
+            <p class="small-label">跟随好奇心的方向</p><h2 id="interests-title" tabindex="-1">兴趣爱好<span class="title-star" aria-hidden="true">✧</span></h2>
+            <p class="lead">发现、整理、创造。<br />让想法慢慢生长。</p><p class="body-copy">喜欢动手做一些有趣的东西，也在意它们如何被看见。从代码到笔记，从内容到视觉，每一次尝试都是新的连接。</p>
+            <p id="interest-instruction" class="interaction-note">移至编号预览，点击探索更多 <span aria-hidden="true">↗</span></p>
+            <div class="interest-lines" aria-label="兴趣探索入口">
+              <a class="interest-item is-active" data-interest="code" href="https://github.com/lzxlchlcx?tab=repositories" target="_blank" rel="noopener noreferrer" aria-describedby="interest-instruction"><span class="interest-index">01</span><span class="interest-description"><span class="interest-title">编程与 AI</span><span class="interest-summary">网页开发、工具脚本，以及 AI 应用的实践。</span></span><span class="interest-arrow" aria-hidden="true">↗</span></a>
+              <a class="interest-item" data-interest="notes" href="./visual-reading/自然辩证法.html" aria-describedby="interest-instruction"><span class="interest-index">02</span><span class="interest-description"><span class="interest-title">个人知识管理</span><span class="interest-summary">Obsidian、阅读与写作，把散落的知识连成星图。</span></span><span class="interest-arrow" aria-hidden="true">↗</span></a>
+              <a class="interest-item" data-interest="design" href="https://m3.material.io/" target="_blank" rel="noopener noreferrer" aria-describedby="interest-instruction"><span class="interest-index">03</span><span class="interest-description"><span class="interest-title">视觉与设计</span><span class="interest-summary">关注简洁的设计和清晰的信息呈现。</span></span><span class="interest-arrow" aria-hidden="true">↗</span></a>
+            </div>
+            <ul class="tags" aria-label="兴趣标签"><li>代码</li><li>AI</li><li>Obsidian</li><li>知识管理</li><li>设计</li></ul>
+            <div class="interest-mobile-picker" aria-label="切换兴趣配图"><button data-interest-select="code" aria-pressed="true">01 编程</button><button data-interest-select="notes" aria-pressed="false">02 笔记</button><button data-interest-select="design" aria-pressed="false">03 设计</button></div>
+          </div>
+          <figure class="panel-image interests-image">
+            <a class="interest-visual is-active" data-interest-visual="code" href="https://github.com/lzxlchlcx?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="编程与 AI，查看我的 GitHub 项目"><img src="./assets/interest-code.webp" data-fallback="./assets/interests.svg" alt="星空工作台上的悬浮 AI 晶体与代码终端" loading="lazy" width="900" height="1000" /><span class="visual-link-label">01 / 编程与 AI <span>查看项目仓库 ↗</span></span></a>
+            <a class="interest-visual" data-interest-visual="notes" href="./visual-reading/自然辩证法.html" aria-label="个人知识管理，阅读现有复习手册" aria-hidden="true" inert><img src="./assets/interest-notes.webp" data-fallback="./assets/writing.svg" alt="笔记纸页与相互连通的知识星图" loading="lazy" width="900" height="1000" /><span class="visual-link-label">02 / 个人知识管理 <span>打开复习手册 ↗</span></span></a>
+            <a class="interest-visual" data-interest-visual="design" href="https://m3.material.io/" target="_blank" rel="noopener noreferrer" aria-label="视觉与设计，查看 Material Design 官方指南" aria-hidden="true" inert><img src="./assets/interest-design.webp" data-fallback="./assets/interests.svg" alt="几何光体与设计工具构成的未来工作室" loading="lazy" width="900" height="1000" /><span class="visual-link-label">03 / 视觉与设计 <span>查看设计指南 ↗</span></span></a>
+            <figcaption><span>FOLLOW YOUR CURIOSITY</span><span id="interest-caption" aria-live="polite">编程与 AI · 主题插画</span></figcaption>
+          </figure>
+        </article>
+        <div class="section-footer"><span>一些小小的热爱，组成了我的世界。</span><a href="#journey">下一站 · 经历 <span aria-hidden="true">↓</span></a></div>
+      </div>
+    </section>
+    <section id="journey" class="screen content-screen" aria-labelledby="journey-title">
+      <div class="section-shell">
+        <div class="section-heading"><span class="eyebrow">04 / JOURNEY</span><span class="section-note">每一步积累，都有它的意义。</span></div>
+        <article class="content-panel">
+          <div class="panel-copy">
+            <p class="small-label">沿途的光，照见下一步</p><h2 id="journey-title" tabindex="-1">经历<span class="title-star" aria-hidden="true">✧</span></h2><p class="body-copy">用代码与文字记录成长。这里收藏已经走过的路，也为未来留下空间。</p>
+            <p class="interaction-note">移至时间点，查看沿途记录</p>
+            <ol class="horizontal-timeline" aria-label="学习经历时间轴">
+              <li class="timeline-node is-active"><button class="timeline-point" aria-expanded="true" aria-controls="journey-202605" aria-label="2026年5月，可视化复习手册上线"><span class="timeline-orbit" aria-hidden="true"></span><time datetime="2026-05">2026.05</time><span class="point-subtitle">手册上线</span></button><div class="timeline-bubble" id="journey-202605"><span class="bubble-eyebrow">2026.05 / START BUILDING</span><h3>可视化复习手册上线</h3><p>完成自然辩证法五大板块的系统整理，制作 Material Design 风格的网页版复习手册。</p><a href="./visual-reading/自然辩证法.html">阅读复习手册 <span aria-hidden="true">↗</span></a></div></li>
+              <li class="timeline-node"><button class="timeline-point" aria-expanded="false" aria-controls="journey-2026" aria-label="2026年，持续学习与构建"><span class="timeline-orbit" aria-hidden="true"></span><time datetime="2026">2026</time><span class="point-subtitle">持续学习</span></button><div class="timeline-bubble" id="journey-2026" hidden><span class="bubble-eyebrow">2026 / KEEP LEARNING</span><h3>持续学习与构建</h3><p>探索 AI 工具和知识管理方法，不断完善个人 Wiki 与项目仓库。</p><a href="https://github.com/lzxlchlcx" target="_blank" rel="noopener noreferrer">查看项目仓库 <span aria-hidden="true">↗</span></a></div></li>
+              <li class="timeline-node"><button class="timeline-point" aria-expanded="false" aria-controls="journey-ongoing" aria-label="持续进行，保持好奇与探索"><span class="timeline-orbit" aria-hidden="true"></span><span class="timeline-date">ONGOING</span><span class="point-subtitle">继续探索</span></button><div class="timeline-bubble" id="journey-ongoing" hidden><span class="bubble-eyebrow">ONGOING / STAY CURIOUS</span><h3>保持好奇，持续探索</h3><p>用代码和文字记录成长，相信每一步积累都有意义。</p><span class="bubble-footnote">新的经历，留给未来。</span></div></li>
+            </ol>
+            <a class="text-link" href="https://github.com/lzxlchlcx" target="_blank" rel="noopener noreferrer">查看我的项目仓库 <span aria-hidden="true">↗</span></a>
+          </div>
+          <figure class="panel-image journey-image"><img src="./assets/journey.svg" alt="星空中向远方延伸的发光路径，象征不断积累的学习历程" loading="lazy" /><figcaption><span>STILL ON THE WAY</span><span>学习历程主题插画</span></figcaption></figure>
+        </article>
+        <footer class="section-footer"><span>© 2026 莲子心 · Built with curiosity</span><a href="#home">回到这片星空 <span aria-hidden="true">↑</span></a></footer>
+      </div>
+    </section>
+  </main>
+  <div class="transition-glow" aria-hidden="true"></div>
+  <noscript><p class="noscript-note">球体交互需要 JavaScript。你仍可使用顶部导航与分页圆点浏览全部内容。</p></noscript>
+</body>
 </html>

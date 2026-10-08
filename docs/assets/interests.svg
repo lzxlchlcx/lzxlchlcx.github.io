@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1000" viewBox="0 0 900 1000" role="img" aria-labelledby="title desc">
+  <title id="title">思考的桌面 · 笔记与知识网络</title>
+  <desc id="desc">暗蓝桌面上的笔记本、笔和设计色样。其上漂浮着知识图谱的光点与连线，表现笔记写作、知识整理和设计审美。</desc>
+  <defs>
+    <linearGradient id="bg" x2=".6" y2="1"><stop stop-color="#06101e"/><stop offset=".5" stop-color="#0d2432"/><stop offset="1" stop-color="#040810"/></linearGradient>
+    <radialGradient id="light"><stop stop-color="#306577" stop-opacity=".5"/><stop offset="1" stop-color="#1e465c" stop-opacity="0"/></radialGradient>
+    <linearGradient id="desk" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#143444"/><stop offset=".5" stop-color="#091623"/><stop offset="1" stop-color="#03080e"/></linearGradient>
+    <linearGradient id="paper" x1="0" x2=".6" y2="1"><stop stop-color="#b4c5c4"/><stop offset=".3" stop-color="#728f97"/><stop offset="1" stop-color="#28434f"/></linearGradient>
+    <linearGradient id="metal" x1="0" x2="1" y2=".3"><stop stop-color="#b2d1d5"/><stop offset=".23" stop-color="#315564"/><stop offset=".5" stop-color="#8cc1c9"/><stop offset="1" stop-color="#152a3e"/></linearGradient>
+    <radialGradient id="node"><stop stop-color="#d1ffff"/><stop offset=".4" stop-color="#83c8d1"/><stop offset="1" stop-color="#326273"/></radialGradient>
+    <pattern id="stars" width="301" height="283" patternUnits="userSpaceOnUse"><circle cx="28" cy="35" r="1" fill="#b1cfd8" opacity=".35"/><circle cx="158" cy="120" r="1.1" fill="#badcdf" opacity=".5"/><circle cx="272" cy="233" r=".8" fill="#a8cad6" opacity=".4"/><circle cx="78" cy="263" r=".7" fill="#c8c8e0" opacity=".4"/></pattern>
+    <filter id="glow"><feGaussianBlur stdDeviation="12"/></filter>
+    <filter id="shadow"><feGaussianBlur stdDeviation="20"/></filter>
+  </defs>
+  <rect width="900" height="1000" fill="url(#bg)"/>
+  <ellipse cx="472" cy="475" rx="430" ry="495" fill="url(#light)"/>
+  <rect width="900" height="1000" fill="url(#stars)"/>
+  <g fill="none" stroke="#477183" opacity=".1"><path d="M0 211H900M0 289H900M0 367H900M151 0V530M293 0V530M435 0V530M577 0V530M719 0V530"/></g>
+  <path d="M0 629L900 561V1000H0Z" fill="url(#desk)"/>
+  <path d="M0 630L900 562" stroke="#739da5" opacity=".26"/>
+  <path d="M0 705L900 637M0 798L900 730M0 891L900 823" stroke="#345161" stroke-width="1" opacity=".12"/>
+  <!-- Stable vector knowledge graph; no invented personal facts. -->
+  <g transform="translate(108 150)">
+    <path d="M29 36L554 0 586 314 50 350Z" fill="#072034" fill-opacity=".28" stroke="#83b8c2" stroke-opacity=".13"/>
+    <path d="M37 43L94 39M38 43l3 49M550 9l-53 4M550 9l5 47M57 341l52-3M57 341l-3-49M578 305l-51 4M578 305l-4-47" fill="none" stroke="#7baeba" stroke-width="1" opacity=".35"/>
+    <g fill="none" stroke="#81bdc8" stroke-width="1.15" opacity=".38">
+      <path d="M273 171L153 110 90 190 174 260 273 171 366 241 488 164 411 74 273 171 254 51 153 110M90 190L78 95M174 260L92 304M366 241L463 299M488 164L535 95M411 74L502 40"/>
+      <path d="M153 110L174 260M411 74L366 241M254 51L411 74" opacity=".4"/>
+    </g>
+    <g fill="#63c3d1" opacity=".2" filter="url(#glow)"><circle cx="273" cy="171" r="42"/><circle cx="153" cy="110" r="24"/><circle cx="366" cy="241" r="25"/></g>
+    <g fill="url(#node)"><circle cx="273" cy="171" r="12"/><circle cx="153" cy="110" r="7"/><circle cx="90" cy="190" r="4"/><circle cx="174" cy="260" r="7"/><circle cx="366" cy="241" r="8"/><circle cx="488" cy="164" r="5"/><circle cx="411" cy="74" r="7"/><circle cx="254" cy="51" r="4"/><circle cx="78" cy="95" r="2"/><circle cx="92" cy="304" r="3"/><circle cx="463" cy="299" r="3"/><circle cx="535" cy="95" r="3"/><circle cx="502" cy="40" r="2"/></g>
+    <g font-family="'Microsoft YaHei', sans-serif" fill="#b6d8df" font-size="12" opacity=".8"><text x="274" y="146" text-anchor="middle">联结</text><text x="131" y="89">阅读</text><text x="157" y="290">笔记</text><text x="354" y="274">设计</text><text x="391" y="52">探索</text></g>
+    <circle cx="273" cy="171" r="26" fill="none" stroke="#9bc4d3" stroke-opacity=".23"/>
+  </g>
+  <ellipse cx="419" cy="750" rx="331" ry="105" fill="#000508" opacity=".7" filter="url(#shadow)"/>
+  <g transform="translate(130 516) rotate(-10 300 190)">
+    <path d="M25 89L308 41 605 99 573 369 290 311 0 361Z" fill="#020b15" stroke="#6d9aab" stroke-opacity=".4"/>
+    <path d="M32 82L308 36 591 94 565 352 291 299 11 350Z" fill="#334b59"/>
+    <path d="M41 77L309 34 301 292 21 340Z" fill="url(#paper)"/>
+    <path d="M309 34L581 91 556 340 301 292Z" fill="url(#paper)"/>
+    <path d="M309 35L301 292" stroke="#031726" stroke-width="7" opacity=".5"/>
+    <path d="M316 40L309 291" stroke="#d0d8d2" stroke-width="1.3" opacity=".25"/>
+    <g stroke="#183c4c" opacity=".43" stroke-width="1.3"><path d="M79 125L256 96M75 146L227 121M70 168L258 137M66 191L228 164M62 213L233 185M58 235L184 214M348 95L519 131M344 118L508 152M340 140L518 177M336 162L481 192M332 183L513 220"/></g>
+    <g fill="none" stroke="#244e5c" opacity=".7"><path d="M348 251L374 225 401 254 433 234 470 266 515 248"/><circle cx="401" cy="254" r="5"/><circle cx="433" cy="234" r="4"/><circle cx="374" cy="225" r="4"/><circle cx="470" cy="266" r="4"/></g>
+    <path d="M252 46L244 128 259 119 270 123 277 42Z" fill="#2d6b7b"/>
+    <path d="M37 329L289 286M314 286L553 334" stroke="#c0d1ce" opacity=".28"/>
+    <g font-family="'Segoe UI', sans-serif" fill="#1b4655" font-size="11" letter-spacing="2"><text x="82" y="99" transform="rotate(-8 82 99)">FIELD NOTES</text></g>
+  </g>
+  <g transform="translate(693 724) rotate(18)">
+    <rect width="15" height="149" rx="6" fill="url(#metal)"/>
+    <path d="M0 149L7 178 15 149Z" fill="#96b6ba"/><path d="M5 170L7 178 10 169Z" fill="#051522"/>
+    <rect x="0" y="25" width="15" height="6" fill="#071522"/>
+    <path d="M12 6V61" stroke="#bacdd3" stroke-width="2" opacity=".7"/>
+  </g>
+  <g transform="translate(94 782) rotate(-13)">
+    <path d="M0 0H133V84H0Z" fill="#1f3544" stroke="#527483" stroke-opacity=".5"/>
+    <path d="M12 13H39V53H12Z" fill="#9fb9c1"/><path d="M39 13H66V53H39Z" fill="#4c8899"/><path d="M66 13H93V53H66Z" fill="#516780"/><path d="M93 13H120V53H93Z" fill="#716587"/>
+    <path d="M12 66H64M12 72H34" stroke="#8195a5" opacity=".45"/>
+  </g>
+  <g fill="#96b9c3" font-family="'Segoe UI', sans-serif" opacity=".55"><text x="75" y="89" font-size="11" letter-spacing="3">THE ART OF CONNECTING.</text><text x="75" y="934" font-size="11" letter-spacing="2">READ / WRITE / MAKE</text><text x="825" y="934" font-size="11" text-anchor="end">03 / CREATE</text></g>
+</svg>

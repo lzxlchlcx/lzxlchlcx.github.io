@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1000" viewBox="0 0 900 1000" role="img" aria-labelledby="title desc">
+  <title id="title">探索者 · 概念插画</title>
+  <desc id="desc">一位匿名的知识探索者站在蓝色星空下，观察悬浮的天体仪。这是概念插画，不是真实肖像。</desc>
+  <defs>
+    <linearGradient id="bg" x2=".65" y2="1"><stop stop-color="#050c18"/><stop offset=".5" stop-color="#0a1e31"/><stop offset="1" stop-color="#03070f"/></linearGradient>
+    <radialGradient id="nebula"><stop stop-color="#327c9b" stop-opacity=".55"/><stop offset=".42" stop-color="#185578" stop-opacity=".28"/><stop offset="1" stop-color="#092032" stop-opacity="0"/></radialGradient>
+    <radialGradient id="violet"><stop stop-color="#6e5389" stop-opacity=".28"/><stop offset="1" stop-color="#352953" stop-opacity="0"/></radialGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b9eff6"/><stop offset=".35" stop-color="#558eae"/><stop offset=".65" stop-color="#213e5a"/><stop offset="1" stop-color="#6e87a2"/></linearGradient>
+    <linearGradient id="cloak" x1="1" x2="0" y2=".4"><stop stop-color="#243d53"/><stop offset=".35" stop-color="#122337"/><stop offset="1" stop-color="#030810"/></linearGradient>
+    <linearGradient id="floor" y2="1"><stop stop-color="#1b3544" stop-opacity=".65"/><stop offset="1" stop-color="#040a11"/></linearGradient>
+    <radialGradient id="core"><stop stop-color="#f0ffff"/><stop offset=".15" stop-color="#a9eced"/><stop offset=".5" stop-color="#398fa7"/><stop offset="1" stop-color="#0c3e54"/></radialGradient>
+    <radialGradient id="vignette"><stop offset=".4" stop-color="#020710" stop-opacity="0"/><stop offset="1" stop-color="#020710" stop-opacity=".75"/></radialGradient>
+    <pattern id="stars" width="290" height="247" patternUnits="userSpaceOnUse"><circle cx="18" cy="45" r="1" fill="#a2d9e3" opacity=".5"/><circle cx="132" cy="96" r="1.2" fill="#d2e6eb" opacity=".7"/><circle cx="224" cy="16" r=".6" fill="#ecf8ff"/><circle cx="265" cy="193" r="1.2" fill="#89bbd4" opacity=".4"/><circle cx="60" cy="208" r=".6" fill="#d5d5f8"/><circle cx="181" cy="226" r=".9" fill="#b1d8d6" opacity=".4"/><circle cx="91" cy="18" r=".8" fill="#fff" opacity=".3"/></pattern>
+    <filter id="glow"><feGaussianBlur stdDeviation="8"/></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="35"/></filter>
+  </defs>
+  <rect width="900" height="1000" fill="url(#bg)"/>
+  <ellipse cx="560" cy="330" rx="490" ry="540" fill="url(#nebula)" transform="rotate(-22 560 330)"/>
+  <ellipse cx="150" cy="400" rx="410" ry="500" fill="url(#violet)"/>
+  <path d="M-60 418C206 186 252 286 414 164S691-18 984 189" fill="none" stroke="#38a6b1" stroke-width="60" opacity=".08" filter="url(#soft)"/>
+  <rect width="900" height="1000" fill="url(#stars)"/>
+  <g fill="none" stroke="#8dd7e2" stroke-width="1" opacity=".17">
+    <circle cx="578" cy="380" r="227"/><circle cx="578" cy="380" r="205" stroke-dasharray="2 11"/>
+    <path d="M578 125v40M578 595v40M323 380h40M793 380h40"/>
+    <path d="M176 184l100 83 113-43 101 34 137-91 122 37"/>
+  </g>
+  <g fill="#b5e1e8"><circle cx="176" cy="184" r="2"/><circle cx="276" cy="267" r="2"/><circle cx="389" cy="224" r="2"/><circle cx="490" cy="258" r="2"/><circle cx="627" cy="167" r="2.5"/><circle cx="749" cy="204" r="2"/></g>
+  <g transform="translate(578 380)">
+    <circle r="117" fill="#73d8e1" opacity=".06" filter="url(#glow)"/>
+    <g fill="none" stroke="url(#edge)" stroke-width="1.7">
+      <ellipse rx="167" ry="167" transform="rotate(-20)"/>
+      <ellipse rx="184" ry="48" transform="rotate(-29)"/>
+      <ellipse rx="152" ry="68" transform="rotate(57)"/>
+      <ellipse rx="104" ry="168" transform="rotate(20)"/>
+      <ellipse rx="182" ry="40" transform="rotate(6)" opacity=".4"/>
+    </g>
+    <circle r="38" fill="url(#core)"/>
+    <ellipse rx="42" ry="16" fill="none" stroke="#c2f4f2" opacity=".6" transform="rotate(-22)"/>
+    <circle cx="-159" cy="-51" r="9" fill="url(#core)"/>
+    <circle cx="143" cy="-50" r="5.5" fill="#d4bafa"/>
+    <circle cx="58" cy="157" r="6" fill="#94c8df"/>
+    <circle cx="-36" cy="-149" r="4" fill="#b6eef2"/>
+    <path d="M-13 0H13M0-13V13" stroke="#fff" stroke-width=".8" opacity=".7"/>
+  </g>
+  <path d="M0 824L174 806 349 836 509 808 680 838 900 819V1000H0Z" fill="url(#floor)"/>
+  <path d="M-20 848Q470 892 925 836M-20 898Q470 940 925 885" fill="none" stroke="#8cc4d3" opacity=".09"/>
+  <ellipse cx="324" cy="842" rx="126" ry="21" fill="#00070d" opacity=".6"/>
+  <!-- The observer is an anonymous concept silhouette, not a personal portrait. -->
+  <g>
+    <path d="M309 430C271 430 248 459 245 501L253 551 220 638 197 837Q287 865 382 829L367 656 331 552 347 513C358 470 341 435 309 430Z" fill="url(#cloak)"/>
+    <path d="M313 436C335 448 343 476 338 503L318 538 289 524 276 493Q277 445 313 436Z" fill="#050d17"/>
+    <path d="M313 436C283 437 267 456 261 486L253 528M314 437Q354 460 337 512L321 542M323 553L343 613 369 662" fill="none" stroke="#70b7c9" stroke-width="2" opacity=".7"/>
+    <path d="M274 543L249 612 234 786M293 561L275 669 268 839M316 567L308 701 325 843M331 578L342 718 365 823" fill="none" stroke="#52758a" stroke-width="1.4" opacity=".34"/>
+    <path d="M328 565Q346 551 368 564L415 595 459 573 470 582 440 614Q422 626 409 621L357 603 342 644Z" fill="url(#cloak)"/>
+    <path d="M347 566Q359 563 376 578L415 602 460 577" fill="none" stroke="#9ccfdb" stroke-width="1.8" opacity=".65"/>
+    <path d="M457 574l12-17 4 3-5 17 11-6 4 4-17 12-13-7Z" fill="#698e9f"/>
+    <path d="M301 565Q276 577 263 612L242 672 251 684 281 640 300 602Z" fill="#0b1927"/>
+    <path d="M219 834L208 849 253 850 268 836M325 836L331 849 379 846 366 829" fill="#03090e"/>
+  </g>
+  <g transform="translate(544 706)" fill="none" stroke="#75b8c9" opacity=".4">
+    <path d="M-35 0H56L76 61H-71Z" fill="#092035"/>
+    <path d="M-28 0L-18-42H46L54 0M0 60V130M0 78L-47 157M0 78L48 157"/>
+    <ellipse cx="13" cy="-43" rx="32" ry="5" fill="#385d6c"/>
+    <path d="M-47 157H-36M48 157H59"/>
+  </g>
+  <rect width="900" height="1000" fill="url(#vignette)"/>
+  <g fill="#b0d1d8" font-family="'Segoe UI', 'Microsoft YaHei', sans-serif">
+    <text x="79" y="108" font-size="12" letter-spacing="4" opacity=".65">A QUIET OBSERVATORY</text>
+    <path d="M79 126H138" stroke="#83c8d2" stroke-width="1" opacity=".55"/>
+    <text x="79" y="925" font-size="11" letter-spacing="2" opacity=".55">概念插画 · 非真实肖像</text>
+    <text x="784" y="925" font-size="12" text-anchor="end" opacity=".4">01 / EXPLORE</text>
+  </g>
+</svg>

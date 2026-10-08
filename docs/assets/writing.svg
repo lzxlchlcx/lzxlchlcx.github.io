@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1000" viewBox="0 0 900 1000" role="img" aria-labelledby="title desc">
+  <title id="title">自然辩证法复习总手册 · 主题封面</title>
+  <desc id="desc">深蓝色复习手册书封，以交织的天体轨道表示自然、科学技术和知识之间的联系。整理人莲子心，2026年5月。</desc>
+  <defs>
+    <linearGradient id="bg" x2=".8" y2="1"><stop stop-color="#091824"/><stop offset=".6" stop-color="#050c18"/><stop offset="1" stop-color="#030810"/></linearGradient>
+    <radialGradient id="light"><stop stop-color="#29697e" stop-opacity=".36"/><stop offset="1" stop-color="#102839" stop-opacity="0"/></radialGradient>
+    <linearGradient id="cover" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#123041"/><stop offset=".42" stop-color="#0c1c2e"/><stop offset="1" stop-color="#11122b"/></linearGradient>
+    <linearGradient id="metal" x1="0" x2="1" y2=".7"><stop stop-color="#c8eeee"/><stop offset=".32" stop-color="#7eb6bf"/><stop offset=".6" stop-color="#438da5"/><stop offset="1" stop-color="#ac94c3"/></linearGradient>
+    <linearGradient id="pages" x1="0" x2="1"><stop stop-color="#899ca0"/><stop offset=".25" stop-color="#bec5c1"/><stop offset="1" stop-color="#637d88"/></linearGradient>
+    <radialGradient id="orb"><stop stop-color="#bcffff"/><stop offset=".14" stop-color="#6ca7ba"/><stop offset="1" stop-color="#092e43"/></radialGradient>
+    <pattern id="stars" width="247" height="267" patternUnits="userSpaceOnUse"><circle cx="24" cy="45" r="1" fill="#b1d2d9" opacity=".35"/><circle cx="160" cy="102" r="1" fill="#c7dfe2" opacity=".3"/><circle cx="212" cy="233" r="1.1" fill="#96c6d3" opacity=".4"/><circle cx="87" cy="195" r=".8" fill="#fff" opacity=".35"/></pattern>
+    <pattern id="linen" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M0 1H5M1 0V5" stroke="#7eb8c1" stroke-width=".2" opacity=".12"/></pattern>
+    <filter id="shadow"><feGaussianBlur stdDeviation="24"/></filter>
+    <filter id="glow"><feGaussianBlur stdDeviation="12"/></filter>
+  </defs>
+  <rect width="900" height="1000" fill="url(#bg)"/>
+  <ellipse cx="367" cy="308" rx="505" ry="506" fill="url(#light)"/>
+  <rect width="900" height="1000" fill="url(#stars)"/>
+  <g fill="none" stroke="#64a7b2" opacity=".1"><circle cx="451" cy="497" r="383"/><circle cx="451" cy="497" r="403" stroke-dasharray="1 12"/><path d="M0 501H900M450 0V1000"/></g>
+  <ellipse cx="467" cy="866" rx="313" ry="37" fill="#000" opacity=".8" filter="url(#shadow)"/>
+  <!-- Editable editorial cover. All title text remains real SVG text. -->
+  <g transform="translate(178 147) rotate(-6 290 350)">
+    <path d="M12 19H577V728L554 748H7Z" fill="#020910"/>
+    <path d="M546 8L571 26V720L546 734Z" fill="url(#pages)"/>
+    <path d="M547 18L565 32M547 29L565 41M547 41L565 52M547 53L565 64M547 67L565 78M547 691L565 702M547 703L565 713" stroke="#2f4d5d" opacity=".45"/>
+    <rect x="0" y="0" width="550" height="728" rx="3" fill="url(#cover)" stroke="#779ca9" stroke-opacity=".36"/>
+    <rect x="0" y="0" width="550" height="728" rx="3" fill="url(#linen)"/>
+    <path d="M19 0V728" stroke="#081422" stroke-width="12"/><path d="M23 1V727" stroke="#7293a0" opacity=".2"/>
+    <path d="M47 31H519V697H47Z" fill="none" stroke="#6d9dab" stroke-opacity=".2"/>
+    <g font-family="'Segoe UI', 'Microsoft YaHei', sans-serif" fill="#b1d7dc">
+      <text x="66" y="71" font-size="10" letter-spacing="3.5">VISUAL STUDY / VOL. 01</text>
+      <text x="66" y="150" font-family="'Noto Serif SC', 'Songti SC', SimSun, serif" font-size="43" letter-spacing="4" fill="#eef6f5">自然辩证法</text>
+      <text x="69" y="193" font-size="21" letter-spacing="9" fill="#acccd2">复习总手册</text>
+      <text x="69" y="232" font-size="10" letter-spacing="2.5" opacity=".6">DIALECTICS OF NATURE</text>
+    </g>
+    <path d="M69 257H476" stroke="url(#metal)" opacity=".35"/>
+    <g transform="translate(277 438)" fill="none" stroke="url(#metal)">
+      <circle r="146" stroke-width=".6" opacity=".5"/>
+      <circle r="134" stroke-width=".5" opacity=".2" stroke-dasharray="1 6"/>
+      <ellipse rx="156" ry="49" transform="rotate(-25)" stroke-width="1.5"/>
+      <ellipse rx="150" ry="61" transform="rotate(45)" stroke-width="1"/>
+      <ellipse rx="83" ry="137" transform="rotate(13)" stroke-width="1.2"/>
+      <path d="M-130-58Q-68-103-24-42T89 25Q146 34 126 91" stroke-width=".8" opacity=".5"/>
+      <circle r="44" fill="url(#orb)" stroke-width=".5"/>
+      <ellipse rx="48" ry="14" transform="rotate(-25)" opacity=".55"/>
+      <circle cx="-128" cy="59" r="8" fill="#7dbfca" stroke-width=".5"/>
+      <circle cx="64" cy="-105" r="6" fill="#b6a1ce" stroke-width=".5"/>
+      <circle cx="116" cy="83" r="4" fill="#bddbdf" stroke-width=".5"/>
+      <path d="M-159 0h23M136 0h23M0-159v23M0 136v23" opacity=".5" stroke-width=".6"/>
+      <circle r="57" opacity=".1" stroke-width="15" filter="url(#glow)"/>
+    </g>
+    <g fill="#a0bac5" font-family="'Segoe UI', 'Microsoft YaHei', sans-serif">
+      <text x="69" y="635" font-size="11" letter-spacing="1.4">五大理论板块 · 真题解析 · 答题模板</text>
+      <path d="M69 661H476" stroke="#75a1b0" opacity=".28"/>
+      <text x="69" y="687" font-size="11" letter-spacing="2">莲子心 / 整理</text>
+      <text x="476" y="687" font-size="10" letter-spacing="1" text-anchor="end">2026.05</text>
+    </g>
+  </g>
+  <g fill="#93b6c0" font-family="'Segoe UI', sans-serif" opacity=".5">
+    <text x="72" y="92" font-size="11" letter-spacing="3">THOUGHTS, IN ORBIT.</text>
+    <text x="72" y="936" font-size="11" letter-spacing="2">NOTES &amp; WRITING</text>
+    <text x="826" y="936" font-size="11" text-anchor="end">02 / READ</text>
+  </g>
+</svg>
