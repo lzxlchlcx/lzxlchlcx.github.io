@@ -34,9 +34,9 @@
 
 ## 品牌标识
 
-- 莲子心 Logo 的 SVG 源文件、浅色背景版本、单色版本和 favicon 保存在仓库 [设计风格/品牌](../../设计风格/品牌)。
+- 莲子心 Logo 的 SVG 源文件、浅色背景版本、单色版本和 favicon 保存在仓库 [设计风格/素材/Logo](../../设计风格/素材/Logo/README.md)。
 - 图形及名称的组合、颜色、最小尺寸和留白见设计规范的「6.4 莲子心品牌标识」。
-- 主页引用 `brand/lianzixin-logo.svg`，浏览器图标引用 `brand/lianzixin-favicon.svg`。这两份部署素材由 `设计风格/sync_brand_assets.py` 同步；修改源文件后运行脚本，并用 `--check` 检查一致性。
+- 主页引用 `brand/lianzixin-logo.svg`，浏览器图标引用 `brand/lianzixin-favicon.svg`。这两份部署素材由 `设计风格/素材/Logo/sync_brand_assets.py` 同步；修改源文件后运行脚本，并用 `--check` 检查一致性。
 
 ## 交互与动画
 
