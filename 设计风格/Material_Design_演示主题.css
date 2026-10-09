@@ -1,0 +1,558 @@
+/*
+ * 深色科技演示主题（Material Design 3 启发）
+ * Project specification version: 2.0.0, revised: 2026-10-09
+ * 这些是本项目的主题值，不是 Google 官方 token 导出。
+ * 使用 .material-tech 容器；data-theme="light" 切换浅色。
+ * 增加 is-reader 类进入阅读布局。此文件不包含演示控制逻辑。
+ */
+
+.material-tech {
+  color-scheme: dark;
+
+  --brand-indigo: #6366F1;
+  --brand-violet: #8B5CF6;
+  --brand-pink: #EC4899;
+  --brand-emerald: #10B981;
+  --brand-blue: #3B82F6;
+
+  --sys-color-surface: #0F172A;
+  --sys-color-surface-container-lowest: #020617;
+  --sys-color-surface-container-low: #111C30;
+  --sys-color-surface-container: #1E293B;
+  --sys-color-surface-container-high: #273449;
+  --sys-color-surface-container-highest: #334155;
+  --sys-color-on-surface: #F8FAFC;
+  --sys-color-on-surface-variant: #CBD5E1;
+  --sys-color-primary: #A5B4FC;
+  --sys-color-on-primary: #1E1B4B;
+  --sys-color-primary-container: #312E81;
+  --sys-color-on-primary-container: #E0E7FF;
+  --sys-color-secondary: #C4B5FD;
+  --sys-color-on-secondary: #2E1065;
+  --sys-color-secondary-container: #4C1D95;
+  --sys-color-on-secondary-container: #EDE9FE;
+  --sys-color-tertiary: #F9A8D4;
+  --sys-color-on-tertiary: #500724;
+  --sys-color-tertiary-container: #831843;
+  --sys-color-on-tertiary-container: #FCE7F3;
+  --sys-color-error: #FCA5A5;
+  --sys-color-on-error: #450A0A;
+  --sys-color-error-container: #7F1D1D;
+  --sys-color-on-error-container: #FEE2E2;
+  --sys-color-outline: #94A3B8;
+  --sys-color-outline-variant: #334155;
+  --sys-color-link: #93C5FD;
+  --sys-color-success-container: #064E3B;
+  --sys-color-on-success-container: #D1FAE5;
+  --sys-color-warning-container: #78350F;
+  --sys-color-on-warning-container: #FEF3C7;
+  --sys-color-inverse-surface: #F1F5F9;
+  --sys-color-inverse-on-surface: #0F172A;
+
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  --radius-none: 0px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  --shadow-card: 0 4px 12px rgb(0 0 0 / 0.30);
+  --shadow-raised: 0 6px 16px rgb(0 0 0 / 0.40);
+  --shadow-overlay: 0 12px 32px rgb(0 0 0 / 0.45);
+
+  --font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
+    Roboto, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --type-display-cover: 56px;
+  --type-display-section: 48px;
+  --type-headline-page: 36px;
+  --type-title-card: 24px;
+  --type-body-main: 24px;
+  --type-body-support: 20px;
+  --type-label: 18px;
+  --type-caption: 16px;
+  --type-data-value: 48px;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --motion-fast: 160ms;
+  --motion-normal: 240ms;
+  --motion-slow: 320ms;
+  --motion-ease: ease-out;
+  --state-hover-opacity: 0.08;
+  --state-pressed-opacity: 0.12;
+
+  --deck-width: 960px;
+  --deck-height: 540px;
+  --deck-safe-margin: 48px;
+  --deck-content-width: 864px;
+  --control-target: 48px;
+  --layer-content: 1;
+  --layer-controls: 20;
+  --layer-scrim: 30;
+  --layer-overlay: 40;
+  --layer-feedback: 50;
+
+  --button-filled-bg: var(--sys-color-primary);
+  --button-filled-fg: var(--sys-color-on-primary);
+  --button-tonal-bg: var(--sys-color-secondary-container);
+  --button-tonal-fg: var(--sys-color-on-secondary-container);
+  --card-bg: var(--sys-color-surface-container);
+  --card-fg: var(--sys-color-on-surface);
+
+  background: var(--sys-color-surface);
+  color: var(--sys-color-on-surface);
+  font-family: var(--font-family);
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.material-tech[data-theme="light"] {
+  color-scheme: light;
+  --sys-color-surface: #F8FAFC;
+  --sys-color-surface-container-lowest: #FFFFFF;
+  --sys-color-surface-container-low: #F8FAFC;
+  --sys-color-surface-container: #F1F5F9;
+  --sys-color-surface-container-high: #E8EEF6;
+  --sys-color-surface-container-highest: #DDE5F0;
+  --sys-color-on-surface: #0F172A;
+  --sys-color-on-surface-variant: #475569;
+  --sys-color-primary: #4338CA;
+  --sys-color-on-primary: #FFFFFF;
+  --sys-color-primary-container: #E0E7FF;
+  --sys-color-on-primary-container: #312E81;
+  --sys-color-secondary: #6D28D9;
+  --sys-color-on-secondary: #FFFFFF;
+  --sys-color-secondary-container: #EDE9FE;
+  --sys-color-on-secondary-container: #4C1D95;
+  --sys-color-tertiary: #BE185D;
+  --sys-color-on-tertiary: #FFFFFF;
+  --sys-color-tertiary-container: #FCE7F3;
+  --sys-color-on-tertiary-container: #831843;
+  --sys-color-error: #B91C1C;
+  --sys-color-on-error: #FFFFFF;
+  --sys-color-error-container: #FEE2E2;
+  --sys-color-on-error-container: #7F1D1D;
+  --sys-color-outline: #64748B;
+  --sys-color-outline-variant: #CBD5E1;
+  --sys-color-link: #1D4ED8;
+  --sys-color-success-container: #D1FAE5;
+  --sys-color-on-success-container: #064E3B;
+  --sys-color-warning-container: #FEF3C7;
+  --sys-color-on-warning-container: #78350F;
+  --sys-color-inverse-surface: #1E293B;
+  --sys-color-inverse-on-surface: #F8FAFC;
+  --shadow-card: 0 4px 12px rgb(15 23 42 / 0.10);
+  --shadow-raised: 0 6px 16px rgb(15 23 42 / 0.14);
+  --shadow-overlay: 0 12px 32px rgb(15 23 42 / 0.18);
+}
+
+.material-tech,
+.material-tech *,
+.material-tech *::before,
+.material-tech *::after {
+  box-sizing: border-box;
+}
+
+.material-tech .md-slide {
+  position: relative;
+  inline-size: var(--deck-width);
+  block-size: var(--deck-height);
+  overflow: hidden;
+  background: var(--sys-color-surface);
+  color: var(--sys-color-on-surface);
+}
+
+.material-tech .md-slide__title {
+  position: absolute;
+  inset-block-start: var(--deck-safe-margin);
+  inset-inline-start: var(--deck-safe-margin);
+  inline-size: var(--deck-content-width);
+  margin: 0;
+  font-size: var(--type-headline-page);
+  font-weight: var(--weight-bold);
+  line-height: 1.2;
+  z-index: var(--layer-content);
+}
+
+.material-tech .md-slide__body {
+  position: absolute;
+  inset-block-start: 120px;
+  inset-inline-start: var(--deck-safe-margin);
+  inline-size: var(--deck-content-width);
+  block-size: 324px;
+  z-index: var(--layer-content);
+}
+
+.material-tech .md-slide__footer {
+  position: absolute;
+  inset-block-end: var(--deck-safe-margin);
+  inset-inline-start: var(--deck-safe-margin);
+  inline-size: var(--deck-content-width);
+  min-block-size: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  color: var(--sys-color-on-surface-variant);
+  font-size: var(--type-caption);
+  line-height: 1.5;
+  z-index: var(--layer-content);
+}
+
+.material-tech .md-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+
+.material-tech .md-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.material-tech .md-grid--four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.material-tech .md-card {
+  min-inline-size: 0;
+  padding: var(--space-6);
+  border: 1px solid var(--sys-color-outline-variant);
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+  color: var(--card-fg);
+  box-shadow: var(--shadow-card);
+}
+
+.material-tech .md-card--emphasized {
+  border-color: transparent;
+  border-radius: var(--radius-xl);
+  background: var(--sys-color-primary-container);
+  color: var(--sys-color-on-primary-container);
+}
+
+.material-tech .md-card--outlined {
+  box-shadow: none;
+}
+
+.material-tech .md-title-card {
+  margin: 0;
+  font-size: var(--type-title-card);
+  font-weight: var(--weight-semibold);
+  line-height: 1.3;
+}
+
+.material-tech .md-body {
+  margin-block: var(--space-2) 0;
+  color: inherit;
+  font-size: var(--type-body-main);
+  font-weight: var(--weight-regular);
+  line-height: 1.5;
+}
+
+.material-tech .md-body--support {
+  font-size: var(--type-body-support);
+}
+
+.material-tech .md-caption {
+  color: var(--sys-color-on-surface-variant);
+  font-size: var(--type-caption);
+  line-height: 1.5;
+}
+
+.material-tech .md-card--emphasized .md-caption,
+.material-tech .md-status .md-caption {
+  color: inherit;
+}
+
+.material-tech .md-data-value {
+  font-size: var(--type-data-value);
+  font-weight: var(--weight-semibold);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.material-tech .md-link {
+  color: var(--sys-color-link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.material-tech .md-controller {
+  position: relative;
+  z-index: var(--layer-controls);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  margin-block-start: var(--space-4);
+  border: 1px solid var(--sys-color-outline-variant);
+  border-radius: var(--radius-xl);
+  background: var(--sys-color-surface-container);
+  color: var(--sys-color-on-surface);
+  font-size: 1rem;
+}
+
+.material-tech .md-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-inline-size: var(--control-target);
+  min-block-size: var(--control-target);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--sys-color-on-surface);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: var(--weight-semibold);
+  line-height: 1.3;
+  cursor: pointer;
+}
+
+.material-tech .md-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: currentColor;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--motion-fast) var(--motion-ease);
+}
+
+.material-tech .md-button > * {
+  position: relative;
+}
+
+.material-tech .md-button--filled {
+  background: var(--button-filled-bg);
+  color: var(--button-filled-fg);
+}
+
+.material-tech .md-button--tonal {
+  background: var(--button-tonal-bg);
+  color: var(--button-tonal-fg);
+}
+
+.material-tech .md-button--outlined {
+  border-color: var(--sys-color-outline);
+}
+
+.material-tech .md-button--text {
+  color: var(--sys-color-primary);
+}
+
+.material-tech .md-button--icon {
+  padding: var(--space-3);
+}
+
+.material-tech .md-button:focus-visible,
+.material-tech .md-link:focus-visible {
+  outline: 2px solid var(--sys-color-outline);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .material-tech .md-button:hover:not(:disabled):not([aria-disabled="true"]):not([aria-busy="true"])::before {
+    opacity: var(--state-hover-opacity);
+  }
+}
+
+.material-tech .md-button:active:not(:disabled):not([aria-disabled="true"]):not([aria-busy="true"])::before {
+  opacity: var(--state-pressed-opacity);
+}
+
+.material-tech .md-button:disabled,
+.material-tech .md-button[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.material-tech .md-button[aria-busy="true"] {
+  cursor: progress;
+}
+
+/* aria-disabled / aria-busy 只是状态标记；应用仍须阻止不应执行的动作。 */
+.material-tech .md-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--sys-color-secondary-container);
+  color: var(--sys-color-on-secondary-container);
+  font-size: var(--type-label);
+  font-weight: var(--weight-semibold);
+  line-height: 1.3;
+}
+
+.material-tech .md-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 44px;
+  inline-size: 44px;
+  block-size: 44px;
+  border-radius: 50%;
+  background: var(--sys-color-primary-container);
+  color: var(--sys-color-on-primary-container);
+  font-size: 20px;
+  font-weight: var(--weight-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.material-tech .md-status {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--sys-color-surface-container);
+  color: var(--sys-color-on-surface);
+}
+
+.material-tech .md-status--success {
+  background: var(--sys-color-success-container);
+  color: var(--sys-color-on-success-container);
+}
+
+.material-tech .md-status--warning {
+  background: var(--sys-color-warning-container);
+  color: var(--sys-color-on-warning-container);
+}
+
+.material-tech .md-status--error {
+  background: var(--sys-color-error-container);
+  color: var(--sys-color-on-error-container);
+}
+
+.material-tech .md-decoration {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.material-tech[data-theme="light"] .md-decoration {
+  display: none;
+}
+
+/* 毛玻璃只在显式加 md-glass 类时开启。背景合成对比度仍需实测。 */
+@supports (backdrop-filter: blur(8px)) {
+  .material-tech:not([data-theme="light"]) .md-glass {
+    background: rgb(30 41 59 / 0.90);
+    backdrop-filter: blur(8px);
+  }
+}
+
+.material-tech.is-reader {
+  --type-display-cover: 2rem;
+  --type-display-section: 2rem;
+  --type-headline-page: 1.5rem;
+  --type-title-card: 1.25rem;
+  --type-body-main: 1.125rem;
+  --type-body-support: 1.125rem;
+  --type-label: 1rem;
+  --type-caption: 1rem;
+  --type-data-value: 2rem;
+}
+
+.material-tech.is-reader .md-slide {
+  inline-size: 100%;
+  max-inline-size: 880px;
+  block-size: auto;
+  margin-inline: auto;
+  padding: var(--space-4);
+  overflow: visible;
+}
+
+.material-tech.is-reader .md-slide__title,
+.material-tech.is-reader .md-slide__body,
+.material-tech.is-reader .md-slide__footer {
+  position: static;
+  inline-size: auto;
+  block-size: auto;
+  overflow-wrap: anywhere;
+}
+
+.material-tech.is-reader .md-slide__body,
+.material-tech.is-reader .md-slide__footer {
+  margin-block-start: var(--space-6);
+}
+
+.material-tech.is-reader .md-slide__footer {
+  flex-wrap: wrap;
+}
+
+.material-tech.is-reader .md-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 600px) {
+  .material-tech.is-reader .md-slide {
+    padding: var(--space-6);
+  }
+  .material-tech.is-reader .md-grid--metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .material-tech.is-reader .md-slide {
+    padding: var(--space-8);
+  }
+  .material-tech.is-reader .md-grid--three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .material-tech {
+    --motion-fast: 0ms;
+    --motion-normal: 0ms;
+    --motion-slow: 0ms;
+  }
+  .material-tech .md-button::before {
+    transition: none;
+  }
+}
+
+@media print {
+  .material-tech {
+    --shadow-card: none;
+    --shadow-raised: none;
+    --shadow-overlay: none;
+    --motion-fast: 0ms;
+    --motion-normal: 0ms;
+    --motion-slow: 0ms;
+    print-color-adjust: exact;
+  }
+  .material-tech .md-controller,
+  .material-tech .md-decoration {
+    display: none;
+  }
+  .material-tech .md-glass {
+    background: var(--sys-color-surface-container);
+    backdrop-filter: none;
+  }
+  .material-tech .md-slide {
+    break-inside: avoid;
+  }
+}

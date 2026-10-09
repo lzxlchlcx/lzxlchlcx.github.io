@@ -2,10 +2,10 @@
 (() => {
   'use strict';
   window.createAtmosphere = (canvas, options = {}) => {
-    const ctx = canvas.getContext('2d', { alpha: true });
+    const ctx = canvas?.getContext('2d', { alpha: true });
     if (!ctx) return null;
     const lowPower = !!options.lowPower;
-    let reduced = !!options.reducedMotion;
+    let reduced = !!options.reducedMotion, active = options.active !== false, destroyed = false;
     let width = 1, height = 1, stars = [], dust = [], nebula = null;
     let frame = 0, last = 0, time = 0, pointer = { x: 0, y: 0 };
     let seed = 9471;
@@ -48,7 +48,9 @@
       ctx.fillStyle = light; ctx.beginPath(); ctx.arc(x, y, radius, 0, Math.PI * 2); ctx.fill();
     }
     function resize() {
-      width = innerWidth; height = innerHeight;
+      if (destroyed) return;
+      const rect = canvas.getBoundingClientRect();
+      width = Math.max(1, rect.width); height = Math.max(1, rect.height);
       const dpr = Math.min(devicePixelRatio || 1, lowPower ? 1.25 : 1.75);
       canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -138,21 +140,28 @@
     }
     function animate(now) {
       frame = 0;
-      if (reduced || document.hidden) return;
+      if (destroyed || !active || reduced || document.hidden) return;
       const elapsed = now - last;
       if (elapsed > (lowPower ? 65 : 40)) { time += Math.min(elapsed, 110); last = now; draw(time); }
       frame = requestAnimationFrame(animate);
     }
-    function start() { if (!frame && !reduced && !document.hidden) { last = performance.now(); frame = requestAnimationFrame(animate); } }
+    function start() { if (!frame && !destroyed && active && !reduced && !document.hidden) { last = performance.now(); frame = requestAnimationFrame(animate); } }
     function stop() { cancelAnimationFrame(frame); frame = 0; }
     function visibility() { if (document.hidden) stop(); else start(); }
     document.addEventListener('visibilitychange', visibility);
     resize(); start();
     return {
       resize,
+      setActive(value) {
+        if (destroyed) return;
+        const next = !!value;
+        if (next === active) return;
+        active = next;
+        if (active) start(); else stop();
+      },
       setPointer(x, y) { pointer = { x: reduced ? 0 : x, y: reduced ? 0 : y }; },
       setReducedMotion(value) { reduced = !!value; if (reduced) { stop(); pointer = { x: 0, y: 0 }; draw(0); } else start(); },
-      destroy() { stop(); document.removeEventListener('visibilitychange', visibility); }
+      destroy() { destroyed = true; stop(); document.removeEventListener('visibilitychange', visibility); }
     };
   };
 })();

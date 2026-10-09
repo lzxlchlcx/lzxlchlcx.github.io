@@ -89,7 +89,7 @@
     const lowPower = Boolean(options.lowPower);
     const mesh = geometry(lowPower);
     let reducedMotion = Boolean(options.reducedMotion);
-    let active = true, destroyed = false, raf = 0, time = 2.5, lastFrame = 0;
+    let active = options.active !== false, destroyed = false, raf = 0, time = 2.5, lastFrame = 0;
     let width = 300, height = 300, radius = 96, pulseAt = -100;
     const frameInterval = 1000 / (lowPower ? 24 : 30);
     let dpr = 1;
