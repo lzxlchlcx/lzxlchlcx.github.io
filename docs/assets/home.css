@@ -47,7 +47,7 @@ h1:focus, h2:focus { outline: none; }
   color: var(--sys-color-on-surface); font-size: 1.125rem; font-weight: 600;
   line-height: 1.4; text-decoration: none; border-radius: var(--radius-sm);
 }
-.brand svg { width: 36px; fill: none; stroke: var(--sys-color-primary); stroke-width: 1.5; }
+.brand-mark { width: 36px; height: auto; }
 .brand-en { display: block; margin-top: 4px; font-size: 1rem; font-weight: 400; letter-spacing: 1px; color: var(--sys-color-on-surface-variant); }
 .top-nav { display: flex; justify-content: center; min-width: 0; gap: 8px; }
 .top-nav a {
@@ -264,7 +264,7 @@ a:active, button:enabled:active { outline-offset: 2px; }
   :root { --page-gutter: 16px; --orb-size: 232px; --orb-y: 66%; }
   .site-header { gap: 8px; }
   .brand { font-size: 1.125rem; gap: 8px; }
-  .brand svg { width: 32px; }
+  .brand-mark { width: 32px; }
   .top-nav { gap: 0; }
   .top-nav a { padding: 12px 4px; }
   .github-link { padding: 12px; }
@@ -335,7 +335,7 @@ a:active, button:enabled:active { outline-offset: 2px; }
   box-shadow: 0 8px 32px rgb(0 0 0 / .14); z-index: 40;
 }
 .brand-en { display: none; }
-.brand svg { width: 30px; }
+.brand-mark { width: 30px; }
 .top-nav { gap: 4px; }
 .top-nav a { padding: 8px 12px; white-space: nowrap; }
 .motion-label { display: none; }

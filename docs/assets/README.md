@@ -30,6 +30,12 @@
 
 这些位图使用内置 ImageGen 工具生成或编辑，未使用 CLI。完整最终提示词见 [image-prompts.md](image-prompts.md)。
 
+## 品牌标识
+
+- 莲子心 Logo 的 SVG 源文件、浅色背景版本、单色版本和 favicon 保存在仓库 [设计风格/品牌](../../设计风格/品牌)。
+- 图形及名称的组合、颜色、最小尺寸和留白见设计规范的「6.4 莲子心品牌标识」。
+- 主页引用 `brand/lianzixin-logo.svg`，浏览器图标引用 `brand/lianzixin-favicon.svg`。这两份部署素材由 `设计风格/sync_brand_assets.py` 同步；修改源文件后运行脚本，并用 `--check` 检查一致性。
+
 ## 交互与动画
 
 - `orb.js`：独立 Canvas 球体；94 个大小不同的弧形孔洞、深色金属骨架、彩色透光膜、尖刺与边缘光。非匀速多轴旋转、扭曲、起伏及收缩；低性能设备使用 70 个孔洞。
