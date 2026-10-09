@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>交互球体预览</title>
+  <style>
+    :root { color-scheme: dark; font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; background: #0f172a; color: #f8fafc; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 32px; font-size: 18px; line-height: 1.7; }
+    .shell { max-width: 800px; margin: auto; }
+    h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.3; margin: 0 0 12px; }
+    p { color: #cbd5e1; margin: 8px 0 24px; }
+    a { color: #93c5fd; text-underline-offset: 4px; }
+    .controls { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; }
+    button { min-height: 48px; padding: 12px 24px; border: 0; border-radius: 9999px; background: #a5b4fc; color: #1e1b4b; font: inherit; cursor: pointer; }
+    button:disabled { background: #273449; color: #cbd5e1; cursor: default; }
+    :focus-visible { outline: 2px solid #c4b5fd; outline-offset: 3px; }
+    .card { border: 1px solid #334155; border-radius: 24px; background: #1e293b; overflow: hidden; }
+    .detail { display: grid; place-items: center; padding: 24px; }
+    canvas { display: block; width: min(100%, 420px); height: auto; aspect-ratio: 1; }
+    .caption { margin: 0; padding: 0 24px 24px; font-size: 16px; text-align: center; }
+    @media(max-width: 600px) { body { padding: 24px 16px; }.detail { padding: 16px; } }
+  </style>
+  <script src="./orb.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <h1>交互球体预览</h1>
+    <p>观察不规则孔洞、金属骨架和彩色透光膜，播放动效查看旋转与形变。</p>
+    <div class="controls">
+      <button id="motion" type="button" aria-pressed="false" disabled>播放动效</button>
+      <a href="./交互球体设计经验.md">查看设计经验</a>
+    </div>
+    <div class="card">
+      <div class="detail"><canvas id="orb-preview" role="img" aria-label="带有不规则孔洞、彩色透光膜和深色金属骨架的球体"></canvas></div>
+      <p class="caption" id="status">静帧使用固定初始几何与时间，便于比较参数变化。</p>
+    </div>
+    <noscript><p>启用 JavaScript 后可查看球体。</p></noscript>
+  </main>
+  <script>
+    addEventListener('DOMContentLoaded', () => {
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+      const lowPower = navigator.hardwareConcurrency <= 4 || !matchMedia('(pointer: fine)').matches;
+      const canvas = document.getElementById('orb-preview');
+      const orb = window.createOrb?.(canvas, { active: false, reducedMotion: reduced.matches, lowPower });
+      const button = document.getElementById('motion');
+      if (!orb) {
+        document.getElementById('status').textContent = '当前环境无法绘制球体，请使用支持 Canvas 的浏览器。';
+        return;
+      }
+      let playing = false;
+      function sync() {
+        orb.setActive(playing && !reduced.matches);
+        button.disabled = reduced.matches;
+        button.setAttribute('aria-pressed', String(playing));
+        button.textContent = reduced.matches ? '减少动态模式' : playing ? '暂停动效' : '播放动效';
+      }
+      button.addEventListener('click', () => { playing = !playing; sync(); });
+      reduced.addEventListener('change', () => {
+        if (reduced.matches) playing = false;
+        orb.setReducedMotion(reduced.matches);
+        sync();
+      });
+      const observer = new ResizeObserver(() => orb.resize());
+      observer.observe(canvas);
+      sync();
+    });
+  </script>
+</body>
+</html>
