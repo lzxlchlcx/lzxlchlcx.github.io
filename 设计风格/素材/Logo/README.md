@@ -12,7 +12,7 @@
 | [莲子心-favicon.svg](莲子心-favicon.svg) | 网站浏览器图标 |
 | [sync_brand_assets.py](sync_brand_assets.py) | 同步默认 Logo 与 favicon 到网页部署目录 |
 
-图形组合、配色、最小尺寸和留白见 [设计规范](../../Material_Design_设计方案.md) 的「6.4 莲子心品牌标识」。
+图形组合、配色、最小尺寸和留白见 [设计规范](../../Material_Design/Material_Design_设计方案.md) 的「6.4 莲子心品牌标识」。
 
 ## 同步网页素材
 
