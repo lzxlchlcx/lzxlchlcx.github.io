@@ -44,7 +44,7 @@
         </nav>
         <p id="orb-hint" class="orb-hint"><span class="hint-mark" aria-hidden="true">✧</span><span class="hint-label">轻触球体，开启探索</span></p>
       </div>
-      <div class="hero-footer"><span class="coordinate">好奇，是探索的起点</span><a class="scroll-cue" href="#about"><span>走进我的世界</span><span aria-hidden="true">↓</span></a><span class="screen-count" aria-label="共五个章节"><b>01</b> / 05</span></div>
+      <div class="hero-footer"><span class="coordinate">好奇，是探索的起点</span><span class="screen-count" aria-label="共五个章节"><b>01</b> / 05</span></div>
     </section>
     <section id="about" class="screen content-screen" aria-labelledby="about-title">
       <div class="section-shell">
@@ -124,14 +124,14 @@
     </section>
   </main>
   <div class="window-backdrop" hidden aria-hidden="true"></div>
-  <dialog id="content-window" class="content-window" aria-labelledby="window-title">
+  <dialog id="content-window" class="content-window" aria-labelledby="window-title" aria-describedby="window-help">
+    <p id="window-help" class="sr-only">使用左右方向键切换栏目，按 Esc 返回星空。</p>
     <div class="window-toolbar">
       <h2 id="window-title" class="sr-only">探索我的世界</h2>
       <nav class="window-tabs" aria-label="切换内容窗口"><a href="#about">关于我</a><a href="#blog">博客</a><a href="#interests">兴趣爱好</a><a href="#journey">经历</a></nav>
       <button class="window-close" type="button" aria-label="关闭窗口，返回主页" title="关闭窗口 · Esc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button>
     </div>
     <div class="window-pages"></div>
-    <div class="window-footer"><button type="button" data-page-step="-1" aria-label="上一个栏目">← 上一页</button><a href="#home">返回星空</a><button type="button" data-page-step="1" aria-label="下一个栏目">下一页 →</button></div>
   </dialog>
   <noscript><p class="noscript-note">球体交互需要 JavaScript。你仍可使用顶部导航与分页圆点浏览全部内容。</p></noscript>
 </body>

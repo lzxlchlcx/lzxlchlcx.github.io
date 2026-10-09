@@ -97,10 +97,8 @@
   const windowTabs = [...contentWindow.querySelectorAll('.window-tabs a')];
   const windowTitle = contentWindow.querySelector('#window-title');
   const closeButton = contentWindow.querySelector('.window-close');
-  const previousButton = contentWindow.querySelector('[data-page-step="-1"]');
-  const nextButton = contentWindow.querySelector('[data-page-step="1"]');
   const backdrop = document.querySelector('.window-backdrop');
-  let pageAnimation = null, windowAnimation = null, returnFocus = null;
+  let pageAnimation = null, windowAnimation = null;
   const pageScroll = new Map();
   screens.slice(1).forEach(screen => {
     screen.hidden = true;
@@ -108,6 +106,9 @@
     windowPages.append(screen);
   });
   body.classList.add('window-layout');
+  const homeActions = document.querySelector('.header-actions');
+  homeActions.classList.add('home-actions');
+  body.append(homeActions);
   orb?.resize();
   atmosphere?.resize();
 
@@ -137,14 +138,11 @@
     setOpen(false);
     if (isContent) {
       if (!contentWindow.open) {
-        returnFocus = document.activeElement;
         contentWindow.show();
       }
       backdrop.hidden = false;
       screens[index].classList.add('is-visible');
       windowTitle.textContent = screens[index].querySelector('h2').childNodes[0].textContent;
-      previousButton.disabled = index === 1;
-      nextButton.disabled = index === screens.length - 1;
       windowPages.scrollTop = pageScroll.get(index) || 0;
       screens[index].querySelector('h2').focus({ preventScroll: true });
       if (!reduced.matches) {
@@ -165,9 +163,7 @@
       contentWindow.close();
       backdrop.hidden = true;
       if (previous > 0) {
-        const target = returnFocus?.isConnected && !returnFocus.closest('#content-window') ? returnFocus : orbButton;
-        target.focus({ preventScroll: true });
-        returnFocus = null;
+        orbButton.focus({ preventScroll: true });
       }
     }
     syncMotion();
@@ -193,21 +189,18 @@
   closeButton.addEventListener('click', () => goTo(screens[0]));
   backdrop.addEventListener('click', () => goTo(screens[0]));
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && contentWindow.open) {
+    if (!contentWindow.open) return;
+    if (event.key === 'Escape') {
       event.preventDefault();
       goTo(screens[0]);
+      return;
     }
-  });
-  [previousButton, nextButton].forEach(button => button.addEventListener('click', () => {
-    goTo(screens[currentScreen + Number(button.dataset.pageStep)]);
-  }));
-  contentWindow.querySelector('.window-tabs').addEventListener('keydown', event => {
     const step = { ArrowRight: 1, ArrowLeft: -1 }[event.key];
-    if (!step) return;
+    if (!step || event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey || event.shiftKey
+      || event.target.closest('input,textarea,select,[contenteditable]:not([contenteditable="false"])')) return;
     event.preventDefault();
     const index = Math.max(1, Math.min(screens.length - 1, currentScreen + step));
     goTo(screens[index]);
-    windowTabs[index - 1].focus({ preventScroll: true });
   });
   let touchStart = null;
   windowPages.addEventListener('touchstart', event => {
@@ -224,11 +217,6 @@
   }, { passive: true });
   windowPages.addEventListener('touchcancel', () => { touchStart = null; }, { passive: true });
 
-  const headerObserver = new ResizeObserver(entries => {
-    const height = entries[0].borderBoxSize?.[0]?.blockSize;
-    if (height) document.documentElement.style.setProperty('--header-height', `${height}px`);
-  });
-  headerObserver.observe(document.querySelector('.site-header'));
 
   document.querySelectorAll('img[data-fallback]').forEach(image => {
     const fallback = () => {
