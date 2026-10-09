@@ -106,6 +106,9 @@
     windowPages.append(screen);
   });
   body.classList.add('window-layout');
+  const homeBrand = document.querySelector('.brand');
+  homeBrand.classList.add('home-brand');
+  body.append(homeBrand);
   const homeActions = document.querySelector('.header-actions');
   homeActions.classList.add('home-actions');
   body.append(homeActions);

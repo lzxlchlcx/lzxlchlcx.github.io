@@ -347,8 +347,9 @@ a:active, button:enabled:active { outline-offset: 2px; }
 .window-layout .hero { height: 100svh; min-height: 0; }
 .window-layout .universe { position: fixed; }
 .window-layout .site-header { display: none; }
+.home-brand { position: fixed; top: 20px; left: 24px; z-index: 20; min-height: 44px; }
 .home-actions { position: fixed; top: 20px; right: 24px; z-index: 20; }
-.in-content .home-actions { visibility: hidden; }
+.in-content .home-brand, .in-content .home-actions { visibility: hidden; }
 .window-layout .hero-copy { top: 16%; }
 .window-layout .page-dots { display: none; }
 .scene, .hero-copy, .orb-system, .hero-footer { transition: opacity 240ms ease-out; }
@@ -396,6 +397,7 @@ a:active, button:enabled:active { outline-offset: 2px; }
   .github-link { width: 44px; padding: 10px; }
   .content-window { inset-block: 12px; width: calc(100% - 24px); height: calc(100svh - 24px); border-radius: 20px; }
   .home-actions { top: 12px; right: 12px; }
+  .home-brand { top: 12px; left: 16px; }
   .window-toolbar { padding: 8px; gap: 4px; }
   .window-tabs { gap: 0; }
   .window-tabs a { padding: 8px 10px; }
@@ -412,7 +414,7 @@ a:active, button:enabled:active { outline-offset: 2px; }
   .window-layout { overflow: visible; }
   .window-layout main { height: auto; }
   .content-window[open] { position: static; width: 100%; height: auto; display: block; border: 0; box-shadow: none; background: white; color: black; }
-  .window-toolbar, .window-backdrop, .home-actions { display: none; }
+  .window-toolbar, .window-backdrop, .home-brand, .home-actions { display: none; }
   .window-pages { overflow: visible; }
   .site-header, .page-dots, .universe, .scene, .orb-system, .hero-footer, .interest-mobile-picker { display: none; }
   .hero { height: auto; min-height: 0; padding: 48px 24px; }
